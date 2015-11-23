@@ -3,7 +3,7 @@ package us.codecraft.webmagic.pipeline;
 import us.codecraft.webmagic.Task;
 
 /**
- * Implements PageModelPipeline to persistent your page model.
+ * Implements PageModelPipeline to persistent your page com.family.grabserver.model.
  *
  * @author code4crafter@gmail.com <br>
  * @since 0.2.0

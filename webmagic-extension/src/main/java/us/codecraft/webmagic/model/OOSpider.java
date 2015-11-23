@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The spider for page model extractor.<br>
- * In webmagic, we call a POJO containing extract result as "page model". <br>
- * You can customize a crawler by write a page model with annotations. <br>
+ * The spider for page com.family.grabserver.model extractor.<br>
+ * In webmagic, we call a POJO containing extract result as "page com.family.grabserver.model". <br>
+ * You can customize a crawler by write a page com.family.grabserver.model with annotations. <br>
  * Such as:
  * <pre>
  * {@literal @}TargetUrl("http://my.oschina.net/flashsword/blog/\\d+")
@@ -76,17 +76,17 @@ public class OOSpider<T> extends Spider {
         }
     }
 
-    @Override
-    protected CollectorPipeline getCollectorPipeline() {
-        return new PageModelCollectorPipeline<T>(pageModelClasses.get(0));
-    }
-
     public static OOSpider create(Site site, Class... pageModels) {
         return new OOSpider(site, null, pageModels);
     }
 
     public static OOSpider create(Site site, PageModelPipeline pageModelPipeline, Class... pageModels) {
         return new OOSpider(site, pageModelPipeline, pageModels);
+    }
+
+    @Override
+    protected CollectorPipeline getCollectorPipeline() {
+        return new PageModelCollectorPipeline<T>(pageModelClasses.get(0));
     }
 
     public OOSpider addPageModel(PageModelPipeline pageModelPipeline, Class... pageModels) {

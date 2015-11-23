@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
- * The main internal logic of page model extractor.
+ * The main internal logic of page com.family.grabserver.model extractor.
  *
  * @author code4crafter@gmail.com <br>
  * @since 0.2.0
@@ -48,6 +48,17 @@ class PageModelExtractor {
         PageModelExtractor pageModelExtractor = new PageModelExtractor();
         pageModelExtractor.init(clazz);
         return pageModelExtractor;
+    }
+
+    public static Method getSetterMethod(Class clazz, Field field) {
+        String name = "set" + StringUtils.capitalize(field.getName());
+        try {
+            Method declaredMethod = clazz.getDeclaredMethod(name, field.getType());
+            declaredMethod.setAccessible(true);
+            return declaredMethod;
+        } catch (NoSuchMethodException e) {
+            return null;
+        }
     }
 
     private void init(Class clazz) {
@@ -187,17 +198,6 @@ class PageModelExtractor {
             }
         }
         return fieldExtractor;
-    }
-
-    public static Method getSetterMethod(Class clazz, Field field) {
-        String name = "set" + StringUtils.capitalize(field.getName());
-        try {
-            Method declaredMethod = clazz.getDeclaredMethod(name, field.getType());
-            declaredMethod.setAccessible(true);
-            return declaredMethod;
-        } catch (NoSuchMethodException e) {
-            return null;
-        }
     }
 
     private void initClassExtractors() {

@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 
 /**
  * Store results objects (page models) to files in JSON format.<br>
- * Use model.getKey() as file name if the model implements HasKey.<br>
+ * Use com.family.grabserver.model.getKey() as file name if the com.family.grabserver.model implements HasKey.<br>
  * Otherwise use SHA1 as file name.
  *
  * @author code4crafter@gmail.com <br>

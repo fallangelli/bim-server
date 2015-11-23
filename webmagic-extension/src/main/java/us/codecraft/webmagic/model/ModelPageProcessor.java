@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * The extension to PageProcessor for page model extractor.
+ * The extension to PageProcessor for page com.family.grabserver.model extractor.
  *
  * @author code4crafter@gmail.com <br>
  * @since 0.2.0
@@ -23,6 +23,10 @@ class ModelPageProcessor implements PageProcessor {
 
     private Site site;
 
+    private ModelPageProcessor(Site site) {
+        this.site = site;
+    }
+
     public static ModelPageProcessor create(Site site, Class... clazzs) {
         ModelPageProcessor modelPageProcessor = new ModelPageProcessor(site);
         for (Class clazz : clazzs) {
@@ -31,15 +35,10 @@ class ModelPageProcessor implements PageProcessor {
         return modelPageProcessor;
     }
 
-
     public ModelPageProcessor addPageModel(Class clazz) {
         PageModelExtractor pageModelExtractor = PageModelExtractor.create(clazz);
         pageModelExtractorList.add(pageModelExtractor);
         return this;
-    }
-
-    private ModelPageProcessor(Site site) {
-        this.site = site;
     }
 
     @Override

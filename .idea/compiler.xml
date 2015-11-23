@@ -39,11 +39,11 @@
         <module name="webmagic-extension" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="bim-grabserver" target="1.7" />
-      <module name="bim-server" target="1.7" />
-      <module name="webmagic-core" target="1.7" />
-      <module name="webmagic-extension" target="1.7" />
+    <bytecodeTargetLevel target="1.6">
+      <module name="bim-grabserver" target="1.6" />
+      <module name="bim-server" target="1.6" />
+      <module name="webmagic-core" target="1.6" />
+      <module name="webmagic-extension" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

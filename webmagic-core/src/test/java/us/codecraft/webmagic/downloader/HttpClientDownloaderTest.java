@@ -1,7 +1,8 @@
 package us.codecraft.webmagic.downloader;
 
-import com.github.dreamhead.moco.*;
+import com.github.dreamhead.moco.HttpServer;
 import com.github.dreamhead.moco.Runnable;
+import com.github.dreamhead.moco.Runner;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -37,6 +38,13 @@ public class HttpClientDownloaderTest {
 
     @Test
     public void testDownloader() {
+        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+        Html html = httpClientDownloader.download("https://github.com");
+        assertTrue(!html.getFirstSourceText().isEmpty());
+    }
+
+    @Test
+    public void testDownload_Tim() {
         HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
         Html html = httpClientDownloader.download("https://github.com");
         assertTrue(!html.getFirstSourceText().isEmpty());

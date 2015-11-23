@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * The extension to Pipeline for page model extractor.
+ * The extension to Pipeline for page com.family.grabserver.model extractor.
  *
  * @author code4crafter@gmail.com <br>
  * @since 0.2.0

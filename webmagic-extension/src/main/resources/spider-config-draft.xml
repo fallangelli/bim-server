@@ -5,11 +5,11 @@ If you have any advice, go https://github.com/code4craft/webmagic/issues/106 and
         <charset>utf-8</charset>
         <user-agent></user-agent>
         <cookies>
-            <cookie domain="" path="" name="" value="">
+            <cookie domain="" path="" title="" value="">
             </cookie>
         </cookies>
         <heads>
-            <head name="" value=""/>
+            <head title="" value=""/>
         </heads>
     </site>
 
@@ -18,10 +18,10 @@ If you have any advice, go https://github.com/code4craft/webmagic/issues/106 and
     </startUrls>
 
     <extraction targetUrl="" helpUrl="">
-        <field name="title">
+        <field title="title">
             <extractor type="xpath" value="//div[@class='title']"/>
         </field>
-        <field name="content">
+        <field title="content">
             <extractor type="xpath" value="//div[@class='content']"/>
         </field>
     </extraction>
