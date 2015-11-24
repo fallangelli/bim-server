@@ -1,17 +1,17 @@
 package com.family.grabserver.model;
 
+import com.family.grab.Page;
+import com.family.grab.Site;
+import com.family.grab.model.AfterExtractor;
+import com.family.grab.model.ConsolePageModelPipeline;
+import com.family.grab.model.OOSpider;
+import com.family.grab.model.annotation.ExtractBy;
+import com.family.grab.model.annotation.ExtractByUrl;
+import com.family.grab.model.annotation.HelpUrl;
+import com.family.grab.model.annotation.TargetUrl;
+import com.family.grab.pipeline.ConsolePipeline;
+import com.family.grab.pipeline.JsonFilePipeline;
 import org.apache.commons.codec.digest.DigestUtils;
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.model.AfterExtractor;
-import us.codecraft.webmagic.model.ConsolePageModelPipeline;
-import us.codecraft.webmagic.model.OOSpider;
-import us.codecraft.webmagic.model.annotation.ExtractBy;
-import us.codecraft.webmagic.model.annotation.ExtractByUrl;
-import us.codecraft.webmagic.model.annotation.HelpUrl;
-import us.codecraft.webmagic.model.annotation.TargetUrl;
-import us.codecraft.webmagic.pipeline.ConsolePipeline;
-import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 
 @TargetUrl(value = "http://movie.douban.com/subject/[0-9]+/", sourceRegion = "//*[@id=\"content\"]/div/div[1]/table/tbody/")
 @HelpUrl("https://movie.douban.com/[0-9]+")
@@ -46,13 +46,13 @@ public class DoubanComing implements AfterExtractor {
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000)
                 , new ConsolePageModelPipeline(), DoubanComing.class)
-                .addPipeline(new JsonFilePipeline("D:\\webmagic\\"))
+                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
                 .addPipeline(new ConsolePipeline())
                 .addUrl("http://movie.douban.com/coming").thread(5).run();
 //        OOSpider.create(Site.me().setSleepTime(1000)
 //                , new ConsolePageModelPipeline(), com.family.grabserver.model.DoubanComing.class)
 //                .addUrl("http://movie.douban.com/coming")
-//                .addPipeline(new JsonFilePipeline("D:\\webmagic\\"))
+//                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
 //                .addPipeline(new ConsolePipeline()).thread(5).run();
     }
 

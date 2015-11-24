@@ -1,10 +1,10 @@
 package com.family.grabserver.pipeline;
 
+import com.family.grab.Task;
+import com.family.grab.pipeline.PageModelPipeline;
 import com.family.grabserver.dao.ComingDao;
 import com.family.grabserver.model.DoubanComing;
 import org.springframework.stereotype.Component;
-import us.codecraft.webmagic.Task;
-import us.codecraft.webmagic.pipeline.PageModelPipeline;
 
 import javax.annotation.Resource;
 

@@ -1,10 +1,10 @@
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.model.ConsolePageModelPipeline;
-import us.codecraft.webmagic.model.OOSpider;
-import us.codecraft.webmagic.model.annotation.ExtractBy;
-import us.codecraft.webmagic.model.annotation.ExtractByUrl;
-import us.codecraft.webmagic.model.annotation.HelpUrl;
-import us.codecraft.webmagic.model.annotation.TargetUrl;
+import com.family.grab.Site;
+import com.family.grab.model.ConsolePageModelPipeline;
+import com.family.grab.model.OOSpider;
+import com.family.grab.model.annotation.ExtractBy;
+import com.family.grab.model.annotation.ExtractByUrl;
+import com.family.grab.model.annotation.HelpUrl;
+import com.family.grab.model.annotation.TargetUrl;
 
 @TargetUrl("https://github.com/\\w+/\\w+")
 @HelpUrl("https://github.com/\\w+")

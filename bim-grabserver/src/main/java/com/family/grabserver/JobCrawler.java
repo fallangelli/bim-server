@@ -1,5 +1,8 @@
 package com.family.grabserver;
 
+import com.family.grab.Site;
+import com.family.grab.model.OOSpider;
+import com.family.grab.pipeline.ConsolePipeline;
 import com.family.grabserver.model.DoubanComing;
 import com.family.grabserver.pipeline.DoubanComingPipeline;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.model.OOSpider;
-import us.codecraft.webmagic.pipeline.ConsolePipeline;
 
 /**
  * @author code4crafer@gmail.com

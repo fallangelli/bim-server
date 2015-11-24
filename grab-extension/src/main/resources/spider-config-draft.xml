@@ -1,5 +1,5 @@
 <!--This is a draft of config file.
-If you have any advice, go https://github.com/code4craft/webmagic/issues/106 and comment!-->
+If you have any advice, go https://github.com/code4craft/grab/issues/106 and comment!-->
 <spider>
     <site>
         <charset>utf-8</charset>

@@ -1,9 +1,9 @@
-import us.codecraft.webmagic.Page;
-import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.pipeline.ConsolePipeline;
-import us.codecraft.webmagic.pipeline.JsonFilePipeline;
-import us.codecraft.webmagic.processor.PageProcessor;
+import com.family.grab.Page;
+import com.family.grab.Site;
+import com.family.grab.Spider;
+import com.family.grab.pipeline.ConsolePipeline;
+import com.family.grab.pipeline.JsonFilePipeline;
+import com.family.grab.processor.PageProcessor;
 
 
 public class ProcessorDoubanComing implements PageProcessor {
@@ -17,7 +17,7 @@ public class ProcessorDoubanComing implements PageProcessor {
                 //��"https://github.com/code4craft"��ʼץ
                 .addUrl("http://movie.douban.com/coming")
                         //����5���߳�ץȡ
-                .addPipeline(new JsonFilePipeline("D:\\webmagic\\"))
+                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
                 .addPipeline(new ConsolePipeline())
                 .thread(5)
                         //��������

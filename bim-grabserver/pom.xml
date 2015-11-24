@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bim-grabserver</artifactId>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- m2eclipse wtp 0.12+ enabled to configure contextRoot, add by w.vela -->
         <spring-version>3.1.1.RELEASE</spring-version>
         <spring-security-version>3.1.0.RELEASE</spring-security-version>
     </properties>
@@ -20,9 +20,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>us.codecraft</groupId>
-            <artifactId>webmagic-extension</artifactId>
-            <version>0.5.2</version>
+            <groupId>com.family</groupId>
+            <artifactId>grab-extension</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
