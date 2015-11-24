@@ -42,10 +42,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="bim-grabserver" target="1.8" />
-      <module name="bim-server" target="1.8" />
-      <module name="grab-core" target="1.8" />
-      <module name="grab-extension" target="1.8" />
+      <module name="bim-grabserver" target="1.5" />
+      <module name="bim-server" target="1.5" />
+      <module name="grab-core" target="1.5" />
+      <module name="grab-extension" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
