@@ -1,4 +1,4 @@
-package com.family.grabserver;
+package com.family.grabserver.crawler;
 
 import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
@@ -11,28 +11,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-/**
- * @author code4crafer@gmail.com
- *         Date: 13-6-23
- *         Time: 下午4:19
- */
 @Component
-public class JobCrawler {
-
-
-    //    @Qualifier("JobInfoDaoPipeline")
-//    @Autowired
-//    private PageModelPipeline jobInfoDaoPipeline;
-//
-//
+public class PageCrawler {
     @Qualifier("DoubanComingPipeline")
     @Autowired
     private DoubanComingPipeline dcPipeline;
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
-        final JobCrawler jobCrawler = applicationContext.getBean(JobCrawler.class);
-        jobCrawler.crawl();
+        final PageCrawler pageCrawler = applicationContext.getBean(PageCrawler.class);
+        pageCrawler.crawl();
     }
 
     public void crawl() {
