@@ -8,16 +8,16 @@ import com.family.grab.pipeline.JsonFilePipeline;
 import com.family.grab.processor.PageProcessor;
 
 
-public class ProcessorMaoyanCinemaJson implements PageProcessor {
+public class ProcessorCinemaMaoyan implements PageProcessor {
 
 
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
 
     public static void main(String[] args) {
 
-        Spider.create(new ProcessorMaoyanCinemaJson())
+        Spider.create(new ProcessorCinemaMaoyan())
                 .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=153")
-                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
+                .addPipeline(new JsonFilePipeline("f:\\grab\\"))
                 .addPipeline(new ConsolePipeline())
                 .thread(1)
                 .run();

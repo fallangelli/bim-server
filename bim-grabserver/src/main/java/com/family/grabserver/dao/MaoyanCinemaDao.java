@@ -1,6 +1,6 @@
 package com.family.grabserver.dao;
 
-import com.family.grabserver.model.MaoyanCinemaJson;
+import com.family.grabserver.model.MaoyanCinemaModel;
 import org.apache.ibatis.annotations.Insert;
 
 /**
@@ -11,5 +11,5 @@ import org.apache.ibatis.annotations.Insert;
 public interface MaoyanCinemaDao {
     @Insert("insert into maoyan_cinema (`context`,`source`, `url`,`urlMd5`)" +
             "values (#{context},#{source},#{url},#{urlMd5})")
-    public int add(MaoyanCinemaJson model);
+    public int add(MaoyanCinemaModel model);
 }

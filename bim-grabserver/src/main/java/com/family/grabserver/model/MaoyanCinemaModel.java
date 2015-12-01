@@ -18,7 +18,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 //@HelpUrl("https://movie.douban.com/[0-9]+")
 //@TargetUrl("http://movie\\.douban\\.com\\/subject\\/[0-9]+\\/")
 //@HelpUrl(value = "http://movie.douban.com/coming", sourceRegion = "//*[@id=\"content\"]/div/div[1]/table/tbody/")
-public class MaoyanCinemaJson implements AfterExtractor {
+public class MaoyanCinemaModel implements AfterExtractor {
 
     @ExtractBy(value = "/html/body/text()")
     private String context;
@@ -31,7 +31,7 @@ public class MaoyanCinemaJson implements AfterExtractor {
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000)
-                , new ConsolePageModelPipeline(), MaoyanCinemaJson.class)
+                , new ConsolePageModelPipeline(), MaoyanCinemaModel.class)
                 .addPipeline(new JsonFilePipeline("D:\\grab\\"))
                 .addPipeline(new ConsolePipeline())
                 .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=153").thread(5).run();

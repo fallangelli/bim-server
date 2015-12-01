@@ -10,6 +10,11 @@
 
     <artifactId>grab-extension</artifactId>
 
+
+    <properties>
+        <compile.level>1.8</compile.level>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>redis.clients</groupId>
