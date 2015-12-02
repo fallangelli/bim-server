@@ -18,8 +18,10 @@
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <context:annotation-config/>
+
+    <!-- 自动扫描 -->
     <context:component-scan
-            base-package="com.family.grabserver"/>
+            base-package="com.family.grabserver.service"/>
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -57,7 +59,7 @@
             <tx:method name="approve*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
             <tx:method name="reject*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
             <tx:method name="retrieve*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
-            <tx:method name="saveOrUpdate*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+            <tx:method name="insertOrUpdate*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
             <tx:method name="submit*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
             <tx:method name="set*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
             <tx:method name="get*" propagation="REQUIRED" read-only="true"/>
