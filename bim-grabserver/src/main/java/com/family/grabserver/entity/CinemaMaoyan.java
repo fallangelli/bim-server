@@ -94,6 +94,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.id
      *
      * @return the value of cinema_maoyan.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -105,6 +106,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.id
      *
      * @param id the value for cinema_maoyan.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -116,6 +118,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.nm
      *
      * @return the value of cinema_maoyan.nm
+     *
      * @mbggenerated
      */
     public String getNm() {
@@ -127,6 +130,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.nm
      *
      * @param nm the value for cinema_maoyan.nm
+     *
      * @mbggenerated
      */
     public void setNm(String nm) {
@@ -138,6 +142,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.ct
      *
      * @return the value of cinema_maoyan.ct
+     *
      * @mbggenerated
      */
     public String getCt() {
@@ -149,6 +154,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.ct
      *
      * @param ct the value for cinema_maoyan.ct
+     *
      * @mbggenerated
      */
     public void setCt(String ct) {
@@ -160,6 +166,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.area
      *
      * @return the value of cinema_maoyan.area
+     *
      * @mbggenerated
      */
     public String getArea() {
@@ -171,6 +178,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.area
      *
      * @param area the value for cinema_maoyan.area
+     *
      * @mbggenerated
      */
     public void setArea(String area) {
@@ -182,6 +190,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.addr
      *
      * @return the value of cinema_maoyan.addr
+     *
      * @mbggenerated
      */
     public String getAddr() {
@@ -193,6 +202,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.addr
      *
      * @param addr the value for cinema_maoyan.addr
+     *
      * @mbggenerated
      */
     public void setAddr(String addr) {
@@ -204,6 +214,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.lat
      *
      * @return the value of cinema_maoyan.lat
+     *
      * @mbggenerated
      */
     public String getLat() {
@@ -215,6 +226,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.lat
      *
      * @param lat the value for cinema_maoyan.lat
+     *
      * @mbggenerated
      */
     public void setLat(String lat) {
@@ -226,6 +238,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.lng
      *
      * @return the value of cinema_maoyan.lng
+     *
      * @mbggenerated
      */
     public String getLng() {
@@ -237,6 +250,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.lng
      *
      * @param lng the value for cinema_maoyan.lng
+     *
      * @mbggenerated
      */
     public void setLng(String lng) {
@@ -248,6 +262,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.tel
      *
      * @return the value of cinema_maoyan.tel
+     *
      * @mbggenerated
      */
     public String getTel() {
@@ -259,6 +274,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.tel
      *
      * @param tel the value for cinema_maoyan.tel
+     *
      * @mbggenerated
      */
     public void setTel(String tel) {
@@ -270,6 +286,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.json_md5
      *
      * @return the value of cinema_maoyan.json_md5
+     *
      * @mbggenerated
      */
     public String getJsonMd5() {
@@ -281,6 +298,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.json_md5
      *
      * @param jsonMd5 the value for cinema_maoyan.json_md5
+     *
      * @mbggenerated
      */
     public void setJsonMd5(String jsonMd5) {
@@ -292,6 +310,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.url
      *
      * @return the value of cinema_maoyan.url
+     *
      * @mbggenerated
      */
     public String getUrl() {
@@ -303,6 +322,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.url
      *
      * @param url the value for cinema_maoyan.url
+     *
      * @mbggenerated
      */
     public void setUrl(String url) {
@@ -314,6 +334,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.url_md5
      *
      * @return the value of cinema_maoyan.url_md5
+     *
      * @mbggenerated
      */
     public String getUrlMd5() {
@@ -325,6 +346,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.url_md5
      *
      * @param urlMd5 the value for cinema_maoyan.url_md5
+     *
      * @mbggenerated
      */
     public void setUrlMd5(String urlMd5) {

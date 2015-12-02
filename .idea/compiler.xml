@@ -17,21 +17,33 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile default="false" name="Annotation profile for grab-extension" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="grab-extension" />
+      </profile>
+      <profile default="false" name="Annotation profile for grab-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="grab-core" />
+      </profile>
+      <profile default="false" name="Annotation profile for bim-grabserver" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="bim-grabserver" />
-        <module name="grab-core" />
-        <module name="grab-extension" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="bim-grabserver" target="1.8" />
-      <module name="bim-server" target="1.8" />
-      <module name="grab-core" target="1.8" />
-      <module name="grab-extension" target="1.8" />
+      <module name="bim-grabserver" target="1.7" />
+      <module name="bim-server" target="1.7" />
+      <module name="grab-core" target="1.7" />
+      <module name="grab-extension" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

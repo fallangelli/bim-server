@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @SuppressWarnings("ALL")
-@Service
+@Service("CinemaMaoyanService")
 public class CinemaMaoyanService {
     @Autowired
     private CinemaMaoyanMapper mapper;
@@ -14,8 +14,12 @@ public class CinemaMaoyanService {
     public int insertOrUpate(CinemaMaoyan record) {
         if (record.getId() == null)
             return mapper.insert(record);
-        else
-            return mapper.updateByPrimaryKey(record);
+        else {
+            if (mapper.selectByPrimaryKey(record.getId()) != null)
+                return mapper.updateByPrimaryKey(record);
+            else
+                return mapper.insert(record);
+        }
     }
 
 }

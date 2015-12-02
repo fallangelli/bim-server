@@ -38,6 +38,7 @@ public class Base {
      * This method returns the value of the database column base.id
      *
      * @return the value of base.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -49,6 +50,7 @@ public class Base {
      * This method sets the value of the database column base.id
      *
      * @param id the value for base.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -60,6 +62,7 @@ public class Base {
      * This method returns the value of the database column base.json_md5
      *
      * @return the value of base.json_md5
+     *
      * @mbggenerated
      */
     public String getJsonMd5() {
@@ -71,6 +74,7 @@ public class Base {
      * This method sets the value of the database column base.json_md5
      *
      * @param jsonMd5 the value for base.json_md5
+     *
      * @mbggenerated
      */
     public void setJsonMd5(String jsonMd5) {
@@ -82,6 +86,7 @@ public class Base {
      * This method returns the value of the database column base.url
      *
      * @return the value of base.url
+     *
      * @mbggenerated
      */
     public String getUrl() {
@@ -93,6 +98,7 @@ public class Base {
      * This method sets the value of the database column base.url
      *
      * @param url the value for base.url
+     *
      * @mbggenerated
      */
     public void setUrl(String url) {
@@ -104,6 +110,7 @@ public class Base {
      * This method returns the value of the database column base.url_md5
      *
      * @return the value of base.url_md5
+     *
      * @mbggenerated
      */
     public String getUrlMd5() {
@@ -115,6 +122,7 @@ public class Base {
      * This method sets the value of the database column base.url_md5
      *
      * @param urlMd5 the value for base.url_md5
+     *
      * @mbggenerated
      */
     public void setUrlMd5(String urlMd5) {

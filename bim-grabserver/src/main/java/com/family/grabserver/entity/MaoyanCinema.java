@@ -38,6 +38,7 @@ public class MaoyanCinema {
      * This method returns the value of the database column maoyan_cinema.id
      *
      * @return the value of maoyan_cinema.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -49,6 +50,7 @@ public class MaoyanCinema {
      * This method sets the value of the database column maoyan_cinema.id
      *
      * @param id the value for maoyan_cinema.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -60,6 +62,7 @@ public class MaoyanCinema {
      * This method returns the value of the database column maoyan_cinema.url
      *
      * @return the value of maoyan_cinema.url
+     *
      * @mbggenerated
      */
     public String getUrl() {
@@ -71,6 +74,7 @@ public class MaoyanCinema {
      * This method sets the value of the database column maoyan_cinema.url
      *
      * @param url the value for maoyan_cinema.url
+     *
      * @mbggenerated
      */
     public void setUrl(String url) {
@@ -82,6 +86,7 @@ public class MaoyanCinema {
      * This method returns the value of the database column maoyan_cinema.urlMd5
      *
      * @return the value of maoyan_cinema.urlMd5
+     *
      * @mbggenerated
      */
     public String getUrlmd5() {
@@ -93,6 +98,7 @@ public class MaoyanCinema {
      * This method sets the value of the database column maoyan_cinema.urlMd5
      *
      * @param urlmd5 the value for maoyan_cinema.urlMd5
+     *
      * @mbggenerated
      */
     public void setUrlmd5(String urlmd5) {
@@ -104,6 +110,7 @@ public class MaoyanCinema {
      * This method returns the value of the database column maoyan_cinema.context
      *
      * @return the value of maoyan_cinema.context
+     *
      * @mbggenerated
      */
     public String getContext() {
@@ -115,6 +122,7 @@ public class MaoyanCinema {
      * This method sets the value of the database column maoyan_cinema.context
      *
      * @param context the value for maoyan_cinema.context
+     *
      * @mbggenerated
      */
     public void setContext(String context) {

@@ -5,5 +5,6 @@
     <file url="file://$PROJECT_DIR$/bim-grabserver" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/grab-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/grab-extension" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

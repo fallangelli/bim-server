@@ -37,7 +37,7 @@
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.family.grabserver.mapper" targetProject="./src/main/resources">
+        <sqlMapGenerator targetPackage="com.family.grabserver.mapping" targetProject="./src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 

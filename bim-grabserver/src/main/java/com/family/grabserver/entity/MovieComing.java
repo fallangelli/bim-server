@@ -70,6 +70,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.id
      *
      * @return the value of movie_coming.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -81,6 +82,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.id
      *
      * @param id the value for movie_coming.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -92,6 +94,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.title
      *
      * @return the value of movie_coming.title
+     *
      * @mbggenerated
      */
     public String getTitle() {
@@ -103,6 +106,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.title
      *
      * @param title the value for movie_coming.title
+     *
      * @mbggenerated
      */
     public void setTitle(String title) {
@@ -114,6 +118,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.director
      *
      * @return the value of movie_coming.director
+     *
      * @mbggenerated
      */
     public String getDirector() {
@@ -125,6 +130,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.director
      *
      * @param director the value for movie_coming.director
+     *
      * @mbggenerated
      */
     public void setDirector(String director) {
@@ -136,6 +142,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.actor
      *
      * @return the value of movie_coming.actor
+     *
      * @mbggenerated
      */
     public String getActor() {
@@ -147,6 +154,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.actor
      *
      * @param actor the value for movie_coming.actor
+     *
      * @mbggenerated
      */
     public void setActor(String actor) {
@@ -158,6 +166,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.type
      *
      * @return the value of movie_coming.type
+     *
      * @mbggenerated
      */
     public String getType() {
@@ -169,6 +178,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.type
      *
      * @param type the value for movie_coming.type
+     *
      * @mbggenerated
      */
     public void setType(String type) {
@@ -180,6 +190,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.source
      *
      * @return the value of movie_coming.source
+     *
      * @mbggenerated
      */
     public String getSource() {
@@ -191,6 +202,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.source
      *
      * @param source the value for movie_coming.source
+     *
      * @mbggenerated
      */
     public void setSource(String source) {
@@ -202,6 +214,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.url
      *
      * @return the value of movie_coming.url
+     *
      * @mbggenerated
      */
     public String getUrl() {
@@ -213,6 +226,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.url
      *
      * @param url the value for movie_coming.url
+     *
      * @mbggenerated
      */
     public void setUrl(String url) {
@@ -224,6 +238,7 @@ public class MovieComing {
      * This method returns the value of the database column movie_coming.urlMd5
      *
      * @return the value of movie_coming.urlMd5
+     *
      * @mbggenerated
      */
     public String getUrlmd5() {
@@ -235,6 +250,7 @@ public class MovieComing {
      * This method sets the value of the database column movie_coming.urlMd5
      *
      * @param urlmd5 the value for movie_coming.urlMd5
+     *
      * @mbggenerated
      */
     public void setUrlmd5(String urlmd5) {
