@@ -1,3 +1,5 @@
+package com.family.grabserver;
+
 import com.family.grab.Site;
 import com.family.grab.model.ConsolePageModelPipeline;
 import com.family.grab.model.OOSpider;
