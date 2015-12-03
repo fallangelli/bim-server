@@ -7,18 +7,17 @@ import com.family.grab.model.ConsolePageModelPipeline;
 import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.ExtractByUrl;
-import com.family.grab.model.annotation.HelpUrl;
 import com.family.grab.model.annotation.TargetUrl;
 import com.family.grab.pipeline.ConsolePipeline;
 import com.family.grab.pipeline.JsonFilePipeline;
 import org.apache.commons.codec.digest.DigestUtils;
 
-@TargetUrl(value = "http://m.maoyan.com/[\\w\\W]*")
-@HelpUrl("http://m.maoyan.com/[\\w\\W]*")
+@TargetUrl(value = "http://m.maoyan.com/changecity.json")
+//@HelpUrl("http://m.maoyan.com/[\\w\\W]*")
 //@HelpUrl("https://movie.douban.com/[0-9]+")
 //@TargetUrl("http://movie\\.douban\\.com\\/subject\\/[0-9]+\\/")
 //@HelpUrl(value = "http://movie.douban.com/coming", sourceRegion = "//*[@id=\"content\"]/div/div[1]/table/tbody/")
-public class MaoyanCinemaModel implements AfterExtractor {
+public class CityMaoyanModel implements AfterExtractor {
 
     @ExtractBy(value = "/html/body/text()")
     private String context;
@@ -31,10 +30,10 @@ public class MaoyanCinemaModel implements AfterExtractor {
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000)
-                , new ConsolePageModelPipeline(), MaoyanCinemaModel.class)
+                , new ConsolePageModelPipeline(), CityMaoyanModel.class)
                 .addPipeline(new JsonFilePipeline("D:\\grab\\"))
                 .addPipeline(new ConsolePipeline())
-                .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=153").thread(5).run();
+                .addUrl("http://m.maoyan.com/changecity.json").thread(5).run();
 //        OOSpider.create(Site.me().setSleepTime(1000)
 //                , new ConsolePageModelPipeline(), com.family.grabserver.model.DoubanComing.class)
 //                .addUrl("http://movie.douban.com/coming")

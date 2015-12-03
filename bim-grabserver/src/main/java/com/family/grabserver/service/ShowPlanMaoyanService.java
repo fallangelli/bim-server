@@ -1,23 +1,17 @@
 package com.family.grabserver.service;
 
-import com.family.grabserver.entity.CinemaMaoyan;
-import com.family.grabserver.mapper.CinemaMaoyanMapper;
+import com.family.grabserver.entity.ShowPlanMaoyan;
+import com.family.grabserver.mapper.ShowPlanMaoyanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @SuppressWarnings("ALL")
 @Service
-public class CinemaMaoyanService {
+public class ShowPlanMaoyanService {
     @Autowired
-    private CinemaMaoyanMapper mapper;
+    private ShowPlanMaoyanMapper mapper;
 
-    public List<CinemaMaoyan> selectAll() {
-        return mapper.selectAll();
-    }
-
-    public int insertOrUpate(CinemaMaoyan record) {
+    public int insertOrUpate(ShowPlanMaoyan record) {
         if (record.getId() == null)
             return mapper.insert(record);
         else {

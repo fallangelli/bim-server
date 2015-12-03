@@ -3,27 +3,32 @@ package com.family.grabserver.crawler;
 import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
 import com.family.grab.pipeline.ConsolePipeline;
-import com.family.grabserver.model.CinemaMaoyanModel;
-import com.family.grabserver.pipeline.CinemaMaoyanPipeline;
+import com.family.grabserver.model.CityMaoyanModel;
+import com.family.grabserver.pipeline.CityMaoyanPipeline;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JsonCrawler {
+public class CityMaoyanCrawler {
     @Autowired
-    private CinemaMaoyanPipeline cinemaMaoyanPipeline;
+    private CityMaoyanPipeline CityMaoyanPipeline;
+
+    private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
-        final JsonCrawler jsonCrawler = applicationContext.getBean(JsonCrawler.class);
+        final CityMaoyanCrawler jsonCrawler = applicationContext.getBean(CityMaoyanCrawler.class);
         jsonCrawler.crawl();
     }
 
     public void crawl() {
+        logger.info("start getting cities from maoyan");
+
         OOSpider.create(Site.me(),
-                cinemaMaoyanPipeline, CinemaMaoyanModel.class).addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=153")
-                .addPipeline(new ConsolePipeline()).thread(5).run();
+                CityMaoyanPipeline, CityMaoyanModel.class).addUrl("http://m.maoyan.com/changecity.json")
+                .addPipeline(new ConsolePipeline()).thread(10).run();
     }
 }

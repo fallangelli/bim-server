@@ -1,45 +1,62 @@
 package com.family.grabserver.pipeline;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.family.grab.Task;
 import com.family.grab.pipeline.PageModelPipeline;
 import com.family.grabserver.entity.CinemaMaoyan;
-import com.family.grabserver.model.MaoyanCinemaModel;
+import com.family.grabserver.model.CinemaMaoyanModel;
 import com.family.grabserver.service.CinemaMaoyanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author code4crafer@gmail.com
- *         Date: 13-6-23
- *         Time: 下午8:56
- */
 @Component
-public class CinemaMaoyanPipeline implements PageModelPipeline<MaoyanCinemaModel> {
+public class CinemaMaoyanPipeline implements PageModelPipeline<CinemaMaoyanModel> {
+
     @Autowired
     private CinemaMaoyanService service;
 
+    private String cityName;
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
     @Override
-    public void process(MaoyanCinemaModel model, Task task) {
+    public void process(CinemaMaoyanModel model, Task task) {
         String context = model.getContext();
         JSONObject ob = JSON.parseObject(context);
         JSONObject data = (JSONObject) ob.get("data");
-        JSONObject cinemaDetailModel = (JSONObject) data.get("cinemaDetailModel");
+        for (String key : data.keySet()) {
+            String area = key;
+            JSONArray cinemaArray = (JSONArray) data.get(key);
+            for (Object cinemaOb : cinemaArray) {
+                JSONObject cinema = (JSONObject) cinemaOb;
+                CinemaMaoyan record = new CinemaMaoyan();
+                record.setId(cinema.getInteger("id"));
+                record.setCt(cityName);
+                record.setNm(cinema.getString("nm"));
+                record.setArea(cinema.getString("area"));
+                record.setAddr(cinema.getString("addr"));
 
-        CinemaMaoyan record = new CinemaMaoyan();
-        record.setId(cinemaDetailModel.getInteger("id"));
+                record.setLat(cinema.getString("lat"));
+                record.setLng(cinema.getString("lng"));
 
-        record.setNm(cinemaDetailModel.getString("nm"));
-        record.setCt(cinemaDetailModel.getString("ct"));
-        record.setArea(cinemaDetailModel.getString("area"));
-        record.setAddr(cinemaDetailModel.getString("addr"));
-        record.setLat(cinemaDetailModel.getString("lat"));
-        record.setLng(cinemaDetailModel.getString("lng"));
-        record.setTel(cinemaDetailModel.getString("tel"));
+                record.setSell(cinema.getBoolean("sell"));
+                record.setPreferential(cinema.getBoolean("preferential"));
+                record.setImax(cinema.getBoolean("imax"));
 
-        record.setUrl(model.getUrl());
+//todo
+//                record.setTel();
 
-        service.insertOrUpate(record);
+                service.insertOrUpate(record);
+            }
+        }
+
     }
 }

@@ -1,28 +1,23 @@
 package com.family.grabserver.service;
 
-import com.family.grabserver.entity.CinemaMaoyan;
-import com.family.grabserver.mapper.CinemaMaoyanMapper;
+import com.family.grabserver.entity.MovieShowingMaoyan;
+import com.family.grabserver.mapper.MovieShowingMaoyanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @SuppressWarnings("ALL")
 @Service
-public class CinemaMaoyanService {
+public class MovieShowingMaoyanService {
     @Autowired
-    private CinemaMaoyanMapper mapper;
+    private MovieShowingMaoyanMapper mapper;
 
-    public List<CinemaMaoyan> selectAll() {
-        return mapper.selectAll();
-    }
-
-    public int insertOrUpate(CinemaMaoyan record) {
+    public int insertOrUpate(MovieShowingMaoyan record) {
         if (record.getId() == null)
             return mapper.insert(record);
         else {
+            //电影信息不覆盖
             if (mapper.selectByPrimaryKey(record.getId()) != null)
-                return mapper.updateByPrimaryKey(record);
+                return 0;
             else
                 return mapper.insert(record);
         }

@@ -1,7 +1,7 @@
 package com.family.grabserver.service;
 
-import com.family.grabserver.entity.CinemaMaoyan;
-import com.family.grabserver.mapper.CinemaMaoyanMapper;
+import com.family.grabserver.entity.CityMaoyan;
+import com.family.grabserver.mapper.CityMaoyanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,15 +9,15 @@ import java.util.List;
 
 @SuppressWarnings("ALL")
 @Service
-public class CinemaMaoyanService {
+public class CityMaoyanService {
     @Autowired
-    private CinemaMaoyanMapper mapper;
+    private CityMaoyanMapper mapper;
 
-    public List<CinemaMaoyan> selectAll() {
+    public List<CityMaoyan> selectAll() {
         return mapper.selectAll();
     }
 
-    public int insertOrUpate(CinemaMaoyan record) {
+    public int insertOrUpate(CityMaoyan record) {
         if (record.getId() == null)
             return mapper.insert(record);
         else {
