@@ -2,7 +2,6 @@ package com.family.grabserver.crawler;
 
 import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
-import com.family.grab.pipeline.ConsolePipeline;
 import com.family.grabserver.model.CityMaoyanModel;
 import com.family.grabserver.pipeline.CityMaoyanPipeline;
 import org.slf4j.LoggerFactory;
@@ -25,10 +24,11 @@ public class CityMaoyanCrawler {
     }
 
     public void crawl() {
-        logger.info("start getting cities from maoyan");
+        logger.info("开始抓取 猫眼 城市列表");
 
-        OOSpider.create(Site.me().setRetryTimes(2),
-                CityMaoyanPipeline, CityMaoyanModel.class).addUrl("http://m.maoyan.com/changecity.json")
-                .addPipeline(new ConsolePipeline()).thread(1).run();
+        OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000),
+                CityMaoyanPipeline, CityMaoyanModel.class)
+                .addUrl("http://m.maoyan.com/changecity.json")
+                .thread(1).run();
     }
 }

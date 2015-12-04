@@ -13,10 +13,6 @@ import com.family.grab.pipeline.JsonFilePipeline;
 import org.apache.commons.codec.digest.DigestUtils;
 
 @TargetUrl(value = "http://m.maoyan.com/changecity.json")
-//@HelpUrl("http://m.maoyan.com/[\\w\\W]*")
-//@HelpUrl("https://movie.douban.com/[0-9]+")
-//@TargetUrl("http://movie\\.douban\\.com\\/subject\\/[0-9]+\\/")
-//@HelpUrl(value = "http://movie.douban.com/coming", sourceRegion = "//*[@id=\"content\"]/div/div[1]/table/tbody/")
 public class CityMaoyanModel implements AfterExtractor {
 
     @ExtractBy(value = "/html/body/text()")

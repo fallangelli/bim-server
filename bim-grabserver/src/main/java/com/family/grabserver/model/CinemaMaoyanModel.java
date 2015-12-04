@@ -7,16 +7,11 @@ import com.family.grab.model.ConsolePageModelPipeline;
 import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.ExtractByUrl;
-import com.family.grab.model.annotation.HelpUrl;
 import com.family.grab.model.annotation.TargetUrl;
 import com.family.grab.pipeline.ConsolePipeline;
 import com.family.grab.pipeline.JsonFilePipeline;
 
 @TargetUrl(value = "http://m.maoyan.com/[\\w\\W]*")
-@HelpUrl("http://m.maoyan.com/[\\w\\W]*")
-//@HelpUrl("https://movie.douban.com/[0-9]+")
-//@TargetUrl("http://movie\\.douban\\.com\\/subject\\/[0-9]+\\/")
-//@HelpUrl(value = "http://movie.douban.com/coming", sourceRegion = "//*[@id=\"content\"]/div/div[1]/table/tbody/")
 public class CinemaMaoyanModel implements AfterExtractor {
 
     @ExtractBy(value = "/html/body/text()")

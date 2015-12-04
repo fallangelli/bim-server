@@ -1,7 +1,6 @@
 package com.family.grabserver;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
@@ -18,34 +17,10 @@ public class MovieShowingMaoyanJsonParseTest {
     //    @Ignore
     @Test
     public void test() {
-        String context = "{\"control\":{\"expires\":1800},\"status\":0,\"data\":{\"hasNext\":true,\"movies\":[{\"sn\":608,\"cnms\":58,\"late\":true,\"showDate\":\"\",\"src\":\"中国大陆\",\"nm\":\"怦然星动\",\"dur\":98,\"img\":\"http://p0.meituan.net/165.220/movie/5c63e738ad2b930f77f5b34972d06571326349.jpg\",\"sc\":9.1,\"ver\":\"2D\",\"rt\":\"本周四上映\",\"imax\":false,\"snum\":9136,\"scm\":\"明星不避嫌，触碰禁忌恋\",\"pn\":122,\"preSale\":0,\"vd\":\"\",\"dir\":\"陈国辉\",\"star\":\"杨幂,李易峰,陈数,王耀庆,张云龙,迪丽热巴,胡彦斌,金世佳,张政,刘泽宙,赵文杰,梁世民,高安艺,李欣泽,葛晓倩,刘亚鹏,王安琪,章静,冷海铭,张星雨,王晓青,李全友,杨峻宇,苏欣\",\"cat\":\"喜剧,爱情\",\"wish\":171654,\"3d\":false,\"id\":338503,\"time\":\"\"},{\"sn\":5,\"cnms\":3,\"late\":false,\"showDate\":\"\",\"src\":\"中国大陆\",\"nm\":\"从天儿降\",\"dur\":99,\"img\":\"http://p0.meituan.net/165.220/movie/55cb9d44cda167314f30e920cca5502a209601.jpg\",\"sc\":0.0,\"ver\":\"2D\",\"rt\":\"本周五上映\",\"imax\":false,\"snum\":4428,\"scm\":\"萌娃有神力，爱情有天意\",\"pn\":262,\"preSale\":1,\"vd\":\"\",\"dir\":\"魏民,魏楠\",\"star\":\"陈学冬,张艺兴,姜雯,李小璐,欧阳俊文,张瑶,于小伟,陈楚生,秦舒培,章子怡,黄晓婉,胡彦斌,释彦能,巴图,瑶淼,谷文泽,范湉湉\",\"cat\":\"喜剧,科幻,爱情\",\"wish\":85400,\"3d\":false,\"id\":246364,\"time\":\"\"},{\"sn\":7,\"cnms\":7,\"late\":false,\"showDate\":\"\",\"src\":\"中国大陆\",\"nm\":\"不可思异\",\"dur\":99,\"img\":\"http://p1.meituan.net/165.220/movie/d2f636cbbbfb60680de9d0f5e2887f261476005.jpg\",\"sc\":0.0,\"ver\":\"2D/3D/中国巨幕\",\"rt\":\"本周五上映\",\"imax\":false,\"snum\":4900,\"scm\":\"外星小魔球，特效有点牛\",\"pn\":238,\"preSale\":1,\"vd\":\"\",\"dir\":\"孙周\",\"star\":\"王宝强,小沈阳,董成鹏,杨抒文,尹正,成毅,辛芷蕾,潘米多,普超英,余皑磊,王伟波,曾帅,邵宇华,苏钰华,王浩然,盖立,孙之麟,游杰,金媛,伍晓君,孙周,赵多娜\",\"cat\":\"剧情,科幻,喜剧\",\"wish\":64076,\"3d\":true,\"id\":78380,\"time\":\"\"},{\"sn\":14,\"cnms\":14,\"late\":false,\"showDate\":\"\",\"src\":\"中国大陆\",\"nm\":\"杜拉拉追婚记\",\"dur\":101,\"img\":\"http://p1.meituan.net/165.220/movie/27b802ecc9a2ed1fd679814242b85132399461.jpg\",\"sc\":0.0,\"ver\":\"2D/中国巨幕\",\"rt\":\"本周五上映\",\"imax\":false,\"snum\":817,\"scm\":\"职场初得意，情场又遇敌\",\"pn\":90,\"preSale\":1,\"vd\":\"\",\"dir\":\"安竹间\",\"star\":\"周渝民,林依晨,陈柏霖,林珍娜,李佳航,邬君梅,邱木翰,陈妍希\",\"cat\":\"剧情,爱情\",\"wish\":73171,\"3d\":false,\"id\":342576,\"time\":\"\"},{\"sn\":476,\"cnms\":59,\"late\":false,\"showDate\":\"\",\"src\":\"美国\",\"nm\":\"火星救援\",\"dur\":144,\"img\":\"http://p0.meituan.net/165.220/movie/f7df200378e3725a4bc825397f5c9956130126.jpg\",\"sc\":8.9,\"ver\":\"3D/IMAX 3D/中国巨幕/全景声\",\"rt\":\"2015-11-25上映\",\"imax\":true,\"snum\":124763,\"scm\":\"孑然火星巅，归途何其险\",\"pn\":320,\"preSale\":0,\"vd\":\"\",\"dir\":\"雷德利·斯科特\",\"star\":\"马特·达蒙,杰西卡·查斯坦,克里斯汀·韦格,杰夫·丹尼尔斯,迈克尔·佩纳,肖恩·宾,凯特·玛拉,塞巴斯蒂安·斯坦,阿卡塞尔·亨涅,切瓦特·埃加福特,本尼迪特·王,麦肯齐·戴维斯,唐纳德·格洛沃,陈数,高雄,Jonathan Aris,布瑞恩·卡斯佩,彼得·舒莱尔,Fanni Krausz,尼古拉斯·惠特曼,Gayathri Kasupathipillai,彼得·林卡,Waleska Latorre,Zsofia Fekszi,迪克兰·汉尼根,查理·加德纳,James Fred Harkins Jr.,Takács Zalán,Scott Alexander Young,尼克·穆罕默德,Björn Freiberg,Nikolett Barabas,Gruffudd Glyn,Mark O'Neal,Karen Gagnon,Lili Bordán,娜奥米·斯科特,理查德·里夫金,Szonja Oroszlán,弗雷德里克·弗雷德,迪亚娜·布列娃,萨姆·斯普卢尔,Ben O'Brien,Balázs Medveczky,Xue Xuxing,Mike Kelly,Narantsogt Tsogtsaikhan,Yang Haiwen,Geoffrey Thomas\",\"cat\":\"动作,冒险,科幻\",\"wish\":130885,\"3d\":true,\"id\":246369,\"time\":\"\"}]}}";
+        String context = "{\"control\":{\"expires\":43200},\"status\":0,\"data\":{\"Dates\":[],\"CinemaListMap\":{},\"MovieDetailModel\":{\"dealsum\":0,\"photos\":[\"http://p0.meituan.net/w.h/movie/17/108718_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/639225_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/635088_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/192098_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/421961_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/427267_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/159887_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/583122_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/572883_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/601798_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/379761_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/501022_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/924657_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/554574_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/686522_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/149578_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/373451_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/699252_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/855954_N*N.jpg\",\"http://p0.meituan.net/w.h/movie/17/801713_N*N.jpg\"],\"showSnum\":true,\"isShowing\":true,\"wishst\":0,\"vnum\":1,\"mk\":0.0,\"pn\":51,\"mtc\":\"<p><b>玩命杰森的不老传奇 既然玩命，就死拼到底。继吕克•贝松导演为杰森量身打造《玩命速递》系列后，杰森•斯坦森的英雄形象也在年青一代中一举成名。玩命人贩的风生水起，杰森的《死亡飞车》又继续演绎他高超的飙车技术。杰森热潮沉浪追击，一波有一波玩命系列并未殆尽。</p><br/><p>    无法控制正义情绪的杰森，因暴打歹徒而被迫上报，被迫上报成为了警界的反面公众人物。同时也刺激了受警察迫害过的杀手“闪电”，为了寻仇便策划了一系列连环杀警事件的一出名，被受“关注”的杰森同他的同性恋上司波特·纳什，这对搞笑二人组对“闪电”展开了穷胜追击。受尽屈辱的警方，对铁锤杀人这简单的手法不但无能为力，杀手细致掩盖证据的手段让案件更是一筹莫展。愚弄警察，竟是在他们眼皮底下耍宝，都不知察觉，让警方更陷入在一片死亡气息中。这个城市的黑暗，连警察都性命不保，极度压迫的刺激感充斥整部影片。为了求生，就跟歹徒玩命一绝。</p><br/><p>    许多人因为爱上玩命而爱上杰森，不容错过的《玩命追踪》，让你见识下病猫也发威。</p>\",\"uc\":\"艾丹 •吉伦在片中扮演杀人魔，形如“年轻版的加里 •奥德曼”。——制片人：Steve Chasman\",\"dra\":\"<p>个性容易冲动火爆的布兰特（杰森·斯坦森 饰），有一次在街头遇上三个混混试图要偷走他的车，身为警官的他竟然动用私刑痛打了这三名嫌犯，因此他被强制接受心理咨询……某天，城市出现了一名专杀警官的连续杀人魔，他的凶器是一把锤子，无人知道他的踪迹，而他靠着连续犯案来追求社会的关注。布兰特奉命追查这名凶手，面对凶残狂妄凶手的放肆挑衅，布兰特真的火大了，既然法律都没办法制裁这名凶手，他决定要靠自己的双手，为这个社会伸张正义！</p>\",\"preSale\":0,\"late\":false,\"vd\":\"http://v.meituan.net/movie/__17550847__3809509.mp4\",\"dir\":\"艾略特·莱斯特 \",\"star\":\"杰森·斯坦森 帕迪·康斯戴恩 艾丹·吉伦 扎威·阿什顿 大卫·莫瑞瑟 奈德·丹内利 马克·里朗斯 卢克·伊万斯 尼基·汉森 Steven Harwood-Brown null 理查德·瑞德尔 Ron Donachie Elly Fairman Alex Lanipekun null null Nabil Elouhabi null 约瑟夫·戴浦西 Mickey Hughes 斯尔詹索里克 Gregory Finnegan null Taylor James Aldonio Danny Freitas Mens-Sana Tamakloe null Ralph Laurila Reece Beaumont null 嘉敏·肯纳 null 菲利克斯·斯科特 鲁珀特·霍利迪-埃文斯 克里斯蒂娜·科尔 Jessica Swain Des Barron 卢克·巴隆 John Burton Rebecca Eve Rishi Ghosh Julie Hoult Ian Hughes Shiden Mezghebe Joanna Miller Mike Parish 克里斯托弗·威尔森 \",\"cat\":\"动作,犯罪,惊悚\",\"wish\":192,\"3d\":false,\"showDate\":\"\",\"src\":\"英国\",\"nm\":\"玩命追踪\",\"img\":\"http://p0.meituan.net/165.220/movie/63a2e5ec37b7e00abeeae07f112f2866149154.jpg\",\"sc\":7.2,\"ver\":\"2D\",\"rt\":\"2012-03-16上映\",\"dur\":97,\"scm\":\"闪电杀人狂，专门害警方\",\"imax\":false,\"snum\":312,\"id\":117,\"time\":\"\"}}}\n";
         JSONObject ob = JSON.parseObject(context);
         JSONObject data = (JSONObject) ob.get("data");
-        JSONArray movies = (JSONArray) data.get("movies");
-        for (Object movieOb : movies) {
-            JSONObject movie = (JSONObject) movieOb;
-            movie.getInteger("id");
-            movie.getString("nm");
-            movie.getString("img");
-            movie.getString("sc");
-            movie.getBoolean("imax");
-            movie.getBoolean("3d");
-            movie.getString("dir");
-            movie.getString("star");
-            movie.getString("cat");
-            movie.getString("scm");
-            movie.getString("dur");
-            movie.getString("ver");
-        }
-//        for (String key : cityMap.keySet()) {
-//            String firstLetter = key;
-//            JSONArray citys = (JSONArray) cityMap.get(key);
-//            for (Object cityOb : citys) {
-//                JSONObject city = (JSONObject) cityOb;
-//                city.getString("id");
-//                city.getString("name");
-//                city.getString("pinyin");
-//            }
-//        }
+        JSONObject movie = (JSONObject) data.get("MovieDetailModel");
+        logger.info(movie.getString("mtc"));
     }
 }

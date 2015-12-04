@@ -7,12 +7,10 @@ import com.family.grab.model.ConsolePageModelPipeline;
 import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.ExtractByUrl;
-import com.family.grab.model.annotation.HelpUrl;
 import com.family.grab.model.annotation.TargetUrl;
 import org.slf4j.LoggerFactory;
 
 @TargetUrl("http://m.maoyan.com/showtime/[\\w\\W]*")
-@HelpUrl("[\\w\\W]*")
 public class ShowPlanMaoyanModel implements AfterExtractor {
 
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
@@ -43,6 +41,9 @@ public class ShowPlanMaoyanModel implements AfterExtractor {
     }
 
     public String getContext() {
+        context = context.replace("<body>", "");
+        context = context.replace("</body>", "");
+        context = context.replace("\n", "");
         return context;
     }
 
@@ -65,6 +66,7 @@ public class ShowPlanMaoyanModel implements AfterExtractor {
     public void setMovieid(String movieid) {
         this.movieid = movieid;
     }
+
 //    @Override
 //    public String toString() {
 //        String retVal = context;

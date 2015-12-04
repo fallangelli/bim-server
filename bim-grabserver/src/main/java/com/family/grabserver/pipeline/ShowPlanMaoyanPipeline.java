@@ -35,9 +35,6 @@ public class ShowPlanMaoyanPipeline implements PageModelPipeline<ShowPlanMaoyanM
     @Override
     public void process(ShowPlanMaoyanModel model, Task task) {
         String context = model.getContext();
-        context = context.replace("<body>", "");
-        context = context.replace("</body>", "");
-        context = context.replace("\n", "");
 
         Pattern p0 = Pattern.compile("(<span class=[\\w\\W]*?</i></span>)");
         Matcher m0 = p0.matcher(context);
