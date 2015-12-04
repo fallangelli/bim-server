@@ -29,6 +29,6 @@ public class CityMaoyanCrawler {
 
         OOSpider.create(Site.me(),
                 CityMaoyanPipeline, CityMaoyanModel.class).addUrl("http://m.maoyan.com/changecity.json")
-                .addPipeline(new ConsolePipeline()).thread(10).run();
+                .addPipeline(new ConsolePipeline()).thread(1).run();
     }
 }

@@ -38,6 +38,7 @@ public class CityMaoyan {
      * This method returns the value of the database column city_maoyan.id
      *
      * @return the value of city_maoyan.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -49,6 +50,7 @@ public class CityMaoyan {
      * This method sets the value of the database column city_maoyan.id
      *
      * @param id the value for city_maoyan.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -60,6 +62,7 @@ public class CityMaoyan {
      * This method returns the value of the database column city_maoyan.name
      *
      * @return the value of city_maoyan.name
+     *
      * @mbggenerated
      */
     public String getName() {
@@ -71,6 +74,7 @@ public class CityMaoyan {
      * This method sets the value of the database column city_maoyan.name
      *
      * @param name the value for city_maoyan.name
+     *
      * @mbggenerated
      */
     public void setName(String name) {
@@ -82,6 +86,7 @@ public class CityMaoyan {
      * This method returns the value of the database column city_maoyan.first_letter
      *
      * @return the value of city_maoyan.first_letter
+     *
      * @mbggenerated
      */
     public String getFirstLetter() {
@@ -93,6 +98,7 @@ public class CityMaoyan {
      * This method sets the value of the database column city_maoyan.first_letter
      *
      * @param firstLetter the value for city_maoyan.first_letter
+     *
      * @mbggenerated
      */
     public void setFirstLetter(String firstLetter) {
@@ -104,6 +110,7 @@ public class CityMaoyan {
      * This method returns the value of the database column city_maoyan.pinyin
      *
      * @return the value of city_maoyan.pinyin
+     *
      * @mbggenerated
      */
     public String getPinyin() {
@@ -115,6 +122,7 @@ public class CityMaoyan {
      * This method sets the value of the database column city_maoyan.pinyin
      *
      * @param pinyin the value for city_maoyan.pinyin
+     *
      * @mbggenerated
      */
     public void setPinyin(String pinyin) {

@@ -366,6 +366,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.json_md5
      *
      * @return the value of cinema_maoyan.json_md5
+     *
      * @mbggenerated
      */
     public String getJsonMd5() {
@@ -377,6 +378,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.json_md5
      *
      * @param jsonMd5 the value for cinema_maoyan.json_md5
+     *
      * @mbggenerated
      */
     public void setJsonMd5(String jsonMd5) {

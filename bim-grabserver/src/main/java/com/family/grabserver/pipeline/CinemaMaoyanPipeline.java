@@ -17,16 +17,6 @@ public class CinemaMaoyanPipeline implements PageModelPipeline<CinemaMaoyanModel
     @Autowired
     private CinemaMaoyanService service;
 
-    private String cityName;
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
     @Override
     public void process(CinemaMaoyanModel model, Task task) {
         String context = model.getContext();
@@ -39,7 +29,7 @@ public class CinemaMaoyanPipeline implements PageModelPipeline<CinemaMaoyanModel
                 JSONObject cinema = (JSONObject) cinemaOb;
                 CinemaMaoyan record = new CinemaMaoyan();
                 record.setId(cinema.getInteger("id"));
-                record.setCt(cityName);
+                record.setCt(model.getCityName());
                 record.setNm(cinema.getString("nm"));
                 record.setArea(cinema.getString("area"));
                 record.setAddr(cinema.getString("addr"));

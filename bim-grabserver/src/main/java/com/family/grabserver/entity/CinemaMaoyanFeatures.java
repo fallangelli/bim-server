@@ -38,6 +38,7 @@ public class CinemaMaoyanFeatures {
      * This method returns the value of the database column cinema_maoyan_features.id
      *
      * @return the value of cinema_maoyan_features.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -49,6 +50,7 @@ public class CinemaMaoyanFeatures {
      * This method sets the value of the database column cinema_maoyan_features.id
      *
      * @param id the value for cinema_maoyan_features.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -60,6 +62,7 @@ public class CinemaMaoyanFeatures {
      * This method returns the value of the database column cinema_maoyan_features.cinema_id
      *
      * @return the value of cinema_maoyan_features.cinema_id
+     *
      * @mbggenerated
      */
     public Integer getCinemaId() {
@@ -71,6 +74,7 @@ public class CinemaMaoyanFeatures {
      * This method sets the value of the database column cinema_maoyan_features.cinema_id
      *
      * @param cinemaId the value for cinema_maoyan_features.cinema_id
+     *
      * @mbggenerated
      */
     public void setCinemaId(Integer cinemaId) {
@@ -82,6 +86,7 @@ public class CinemaMaoyanFeatures {
      * This method returns the value of the database column cinema_maoyan_features.desc
      *
      * @return the value of cinema_maoyan_features.desc
+     *
      * @mbggenerated
      */
     public String getDesc() {
@@ -93,6 +98,7 @@ public class CinemaMaoyanFeatures {
      * This method sets the value of the database column cinema_maoyan_features.desc
      *
      * @param desc the value for cinema_maoyan_features.desc
+     *
      * @mbggenerated
      */
     public void setDesc(String desc) {
@@ -104,6 +110,7 @@ public class CinemaMaoyanFeatures {
      * This method returns the value of the database column cinema_maoyan_features.tag
      *
      * @return the value of cinema_maoyan_features.tag
+     *
      * @mbggenerated
      */
     public String getTag() {
@@ -115,6 +122,7 @@ public class CinemaMaoyanFeatures {
      * This method sets the value of the database column cinema_maoyan_features.tag
      *
      * @param tag the value for cinema_maoyan_features.tag
+     *
      * @mbggenerated
      */
     public void setTag(String tag) {

@@ -11,7 +11,6 @@ import com.family.grab.model.annotation.HelpUrl;
 import com.family.grab.model.annotation.TargetUrl;
 import com.family.grab.pipeline.ConsolePipeline;
 import com.family.grab.pipeline.JsonFilePipeline;
-import org.apache.commons.codec.digest.DigestUtils;
 
 @TargetUrl(value = "http://m.maoyan.com/[\\w\\W]*")
 @HelpUrl("http://m.maoyan.com/[\\w\\W]*")
@@ -23,11 +22,9 @@ public class CinemaMaoyanModel implements AfterExtractor {
     @ExtractBy(value = "/html/body/text()")
     private String context;
 
-    private String source = "http://m.maoyan.com";
 
-    @ExtractByUrl
-    private String url = "";
-    private String urlMd5 = "";
+    @ExtractByUrl("cityName=(\\w*\\W*)")
+    private String cityName = "";
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000)
@@ -50,13 +47,12 @@ public class CinemaMaoyanModel implements AfterExtractor {
         this.context = context;
     }
 
-    public String getUrl() {
-        return url;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-        this.urlMd5 = DigestUtils.md5Hex(url);
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     @Override

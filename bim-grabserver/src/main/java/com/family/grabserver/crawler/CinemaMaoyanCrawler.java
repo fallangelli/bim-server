@@ -37,10 +37,9 @@ public class CinemaMaoyanCrawler {
 
         for (CityMaoyan city : allCity) {
             logger.info("start getting cinemas from maoyan in " + city.getName());
-            cinemaMaoyanPipeline.setCityName(city.getName());
             OOSpider.create(Site.me().addCookie("ci", city.getId().toString()),
-                    cinemaMaoyanPipeline, CinemaMaoyanModel.class).addUrl("http://m.maoyan.com/cinemas.json")
-                    .addPipeline(new ConsolePipeline()).thread(2).run();
+                    cinemaMaoyanPipeline, CinemaMaoyanModel.class).addUrl("http://m.maoyan.com/cinemas.json?cityName=" + city.getName())
+                    .addPipeline(new ConsolePipeline()).thread(1).run();
         }
 
 

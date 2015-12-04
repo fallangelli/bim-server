@@ -1,12 +1,19 @@
 package com.family.grabserver.crawler;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.family.grab.Page;
+import com.family.grab.Request;
 import com.family.grab.Site;
+import com.family.grab.downloader.HttpClientDownloader;
 import com.family.grab.model.OOSpider;
 import com.family.grab.pipeline.ConsolePipeline;
-import com.family.grabserver.entity.CinemaMovieMaoyan;
+import com.family.grabserver.entity.CinemaMaoyan;
 import com.family.grabserver.model.ShowPlanMaoyanModel;
 import com.family.grabserver.pipeline.ShowPlanMaoyanPipeline;
-import com.family.grabserver.service.CinemaMovieMaoyanService;
+import com.family.grabserver.service.CinemaMaoyanService;
+import com.sun.xml.internal.fastinfoset.util.StringArray;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -21,7 +28,7 @@ public class ShowPlanMaoyanCrawler {
     private ShowPlanMaoyanPipeline pipeline;
 
     @Autowired
-    private CinemaMovieMaoyanService service;
+    private CinemaMaoyanService cinemaService;
 
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -32,22 +39,31 @@ public class ShowPlanMaoyanCrawler {
     }
 
     public void crawl() {
-        List<CinemaMovieMaoyan> allCinemaMoive = service.selectAll();
-        for (CinemaMovieMaoyan item : allCinemaMoive) {
-            logger.info("start getting moive " + item.getMovieId() + " show plan from maoyan in " + item.getCinemaId());
-            pipeline.setCinemaId(item.getCinemaId());
-            pipeline.setMovieId(item.getMovieId());
-            String url = "http://m.maoyan.com/showtime/wrap.json?cinemaid=" + item.getCinemaId() + "&movieid=" + item.getMovieId();
-            OOSpider.create(Site.me().addCookie("ci", "1")
-                            .addCookie("__mta", "251941430.1449133522188.1449133522188.1449133522188.1")
-                            .addCookie("__utma", "17099173.248164319.1449133508.1449133508.1449133508.1")
-                            .addCookie("__utmb", "17099173.4.9.1449133578034")
-                            .addCookie("__utmc", "17099173")
-                            .addCookie("__utmz", "17099173.1449133508.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)")
-                            .addCookie("isWebp", "1")
-                            .addCookie("JSESSIONID", "rebtpr4dhitcyihnfhujb8d7")
-                            .addCookie("iuuid", "00F0BDA0B294FDA539775C4233D05C72F76D27F34E495DD051095F3AEBFF051D"),
-                    pipeline, ShowPlanMaoyanModel.class).addUrl(url)
+        List<CinemaMaoyan> allCinema = cinemaService.selectAll();
+        for (CinemaMaoyan cinema : allCinema) {
+            logger.info("start getting movies from maoyan in " + cinema.getNm());
+            String url = "http://m.maoyan.com/showtime/wrap.json?cinemaid=" + cinema.getId();
+
+            Site site = Site.me();
+            HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+            Page download = httpClientDownloader.download(new Request(url), site.toTask());
+
+            String context = download.getRawText();
+            JSONObject ob = JSON.parseObject(context);
+            JSONObject data = (JSONObject) ob.get("data");
+            JSONArray movies = (JSONArray) data.get("movies");
+
+            StringArray urls = new StringArray();
+            for (Object moiveOb : movies) {
+                JSONObject moive = (JSONObject) moiveOb;
+                String movieUrl = "http://m.maoyan.com/showtime/wrap.json?cinemaid="
+                        + cinema.getId() + "&movieid=" + moive.getInteger("id");
+                urls.add(movieUrl);
+            }
+
+            OOSpider.create(Site.me(),
+                    pipeline, ShowPlanMaoyanModel.class)
+                    .addUrl(urls.getArray())
                     .addPipeline(new ConsolePipeline()).thread(1).run();
         }
     }

@@ -110,6 +110,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.id
      *
      * @return the value of movie_showing_maoyan.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -121,6 +122,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.id
      *
      * @param id the value for movie_showing_maoyan.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -132,6 +134,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.nm
      *
      * @return the value of movie_showing_maoyan.nm
+     *
      * @mbggenerated
      */
     public String getNm() {
@@ -143,6 +146,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.nm
      *
      * @param nm the value for movie_showing_maoyan.nm
+     *
      * @mbggenerated
      */
     public void setNm(String nm) {
@@ -154,6 +158,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.img
      *
      * @return the value of movie_showing_maoyan.img
+     *
      * @mbggenerated
      */
     public String getImg() {
@@ -165,6 +170,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.img
      *
      * @param img the value for movie_showing_maoyan.img
+     *
      * @mbggenerated
      */
     public void setImg(String img) {
@@ -176,6 +182,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.sc
      *
      * @return the value of movie_showing_maoyan.sc
+     *
      * @mbggenerated
      */
     public String getSc() {
@@ -187,6 +194,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.sc
      *
      * @param sc the value for movie_showing_maoyan.sc
+     *
      * @mbggenerated
      */
     public void setSc(String sc) {
@@ -198,6 +206,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.src
      *
      * @return the value of movie_showing_maoyan.src
+     *
      * @mbggenerated
      */
     public String getSrc() {
@@ -209,6 +218,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.src
      *
      * @param src the value for movie_showing_maoyan.src
+     *
      * @mbggenerated
      */
     public void setSrc(String src) {
@@ -220,6 +230,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.imax
      *
      * @return the value of movie_showing_maoyan.imax
+     *
      * @mbggenerated
      */
     public Boolean getImax() {
@@ -231,6 +242,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.imax
      *
      * @param imax the value for movie_showing_maoyan.imax
+     *
      * @mbggenerated
      */
     public void setImax(Boolean imax) {
@@ -242,6 +254,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.is3d
      *
      * @return the value of movie_showing_maoyan.is3d
+     *
      * @mbggenerated
      */
     public Boolean getIs3d() {
@@ -253,6 +266,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.is3d
      *
      * @param is3d the value for movie_showing_maoyan.is3d
+     *
      * @mbggenerated
      */
     public void setIs3d(Boolean is3d) {
@@ -264,6 +278,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.dir
      *
      * @return the value of movie_showing_maoyan.dir
+     *
      * @mbggenerated
      */
     public String getDir() {
@@ -275,6 +290,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.dir
      *
      * @param dir the value for movie_showing_maoyan.dir
+     *
      * @mbggenerated
      */
     public void setDir(String dir) {
@@ -286,6 +302,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.star
      *
      * @return the value of movie_showing_maoyan.star
+     *
      * @mbggenerated
      */
     public String getStar() {
@@ -297,6 +314,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.star
      *
      * @param star the value for movie_showing_maoyan.star
+     *
      * @mbggenerated
      */
     public void setStar(String star) {
@@ -308,6 +326,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.cat
      *
      * @return the value of movie_showing_maoyan.cat
+     *
      * @mbggenerated
      */
     public String getCat() {
@@ -319,6 +338,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.cat
      *
      * @param cat the value for movie_showing_maoyan.cat
+     *
      * @mbggenerated
      */
     public void setCat(String cat) {
@@ -330,6 +350,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.scm
      *
      * @return the value of movie_showing_maoyan.scm
+     *
      * @mbggenerated
      */
     public String getScm() {
@@ -341,6 +362,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.scm
      *
      * @param scm the value for movie_showing_maoyan.scm
+     *
      * @mbggenerated
      */
     public void setScm(String scm) {
@@ -352,6 +374,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.dur
      *
      * @return the value of movie_showing_maoyan.dur
+     *
      * @mbggenerated
      */
     public String getDur() {
@@ -363,6 +386,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.dur
      *
      * @param dur the value for movie_showing_maoyan.dur
+     *
      * @mbggenerated
      */
     public void setDur(String dur) {
@@ -374,6 +398,7 @@ public class MovieShowingMaoyan {
      * This method returns the value of the database column movie_showing_maoyan.ver
      *
      * @return the value of movie_showing_maoyan.ver
+     *
      * @mbggenerated
      */
     public String getVer() {
@@ -385,6 +410,7 @@ public class MovieShowingMaoyan {
      * This method sets the value of the database column movie_showing_maoyan.ver
      *
      * @param ver the value for movie_showing_maoyan.ver
+     *
      * @mbggenerated
      */
     public void setVer(String ver) {
