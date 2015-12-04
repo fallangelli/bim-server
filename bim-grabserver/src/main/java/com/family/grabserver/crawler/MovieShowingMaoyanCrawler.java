@@ -36,9 +36,9 @@ public class MovieShowingMaoyanCrawler {
         for (CityMaoyan city : allCity) {
             logger.info("start getting movie from maoyan in " + city.getName());
 
-            OOSpider.create(Site.me().addCookie("ci", city.getId().toString()),
+            OOSpider.create(Site.me().setRetryTimes(2).addCookie("ci", city.getId().toString()),
                     movieShowingMaoyanPipeline, MovieShowingMaoyanModel.class).addUrl("http://m.maoyan.com/movie/list.json")
-                    .addPipeline(new ConsolePipeline()).thread(3).run();
+                    .addPipeline(new ConsolePipeline()).thread(1).run();
         }
     }
 }

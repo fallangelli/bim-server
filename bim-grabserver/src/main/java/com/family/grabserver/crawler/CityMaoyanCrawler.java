@@ -27,7 +27,7 @@ public class CityMaoyanCrawler {
     public void crawl() {
         logger.info("start getting cities from maoyan");
 
-        OOSpider.create(Site.me(),
+        OOSpider.create(Site.me().setRetryTimes(2),
                 CityMaoyanPipeline, CityMaoyanModel.class).addUrl("http://m.maoyan.com/changecity.json")
                 .addPipeline(new ConsolePipeline()).thread(1).run();
     }
