@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * Date: 13-5-13
  * Time: 下午8:33
  */
-public class ShowPlanMaoyanJsonParseTest {
+public class ShowplanMaoyanJsonParseTest {
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
     //    @Ignore
@@ -28,7 +28,7 @@ public class ShowPlanMaoyanJsonParseTest {
                 " <span class=\"\\\"m3\" true2\\\"=\"\"><i>845925</i><i>105</i></span>\",\"tp\":\"3D\"}]},\"cssLink\":\"http://p0.meituan.net/movie/053aa83e7685092123c25ab7f6087db33380.css\"}} ";
         context = context.trim().replace("\n", "").substring(6);
         context.substring(0, context.length() - 7);
-        context.replace("\"\\\"","'");
+        context.replace("\"\\\"", "'");
         JSONObject ob = JSON.parseObject(context);
         JSONObject data = (JSONObject) ob.get("data");
         JSONObject dateShow = (JSONObject) data.get("DateShow");
