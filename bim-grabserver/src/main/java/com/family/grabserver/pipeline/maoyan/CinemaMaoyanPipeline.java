@@ -1,4 +1,4 @@
-package com.family.grabserver.pipeline;
+package com.family.grabserver.pipeline.maoyan;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -6,7 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.family.grab.Task;
 import com.family.grab.pipeline.PageModelPipeline;
 import com.family.grabserver.entity.CinemaMaoyan;
-import com.family.grabserver.model.CinemaMaoyanModel;
+import com.family.grabserver.model.maoyan.CinemaMaoyanModel;
 import com.family.grabserver.service.CinemaMaoyanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,6 +30,7 @@ public class CinemaMaoyanPipeline implements PageModelPipeline<CinemaMaoyanModel
                 CinemaMaoyan record = new CinemaMaoyan();
                 record.setId(cinema.getInteger("id"));
                 record.setCt(model.getCityName());
+                record.setCityId(Integer.parseInt(model.getCityId()));
                 record.setNm(cinema.getString("nm"));
                 record.setArea(cinema.getString("area"));
                 record.setAddr(cinema.getString("addr"));

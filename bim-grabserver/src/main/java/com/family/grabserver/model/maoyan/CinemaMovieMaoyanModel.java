@@ -1,4 +1,4 @@
-package com.family.grabserver.model;
+package com.family.grabserver.model.maoyan;
 
 import com.family.grab.Page;
 import com.family.grab.model.AfterExtractor;
@@ -7,7 +7,7 @@ import com.family.grab.model.annotation.ExtractByUrl;
 import com.family.grab.model.annotation.TargetUrl;
 
 @TargetUrl(value = "http://m.maoyan.com/[\\w\\W]*")
-public class CinemaMovieMaoyanModel implements AfterExtractor {
+public class CinemamovieMaoyanModel implements AfterExtractor {
 
     @ExtractBy(value = "/html/body/text()")
     private String context;

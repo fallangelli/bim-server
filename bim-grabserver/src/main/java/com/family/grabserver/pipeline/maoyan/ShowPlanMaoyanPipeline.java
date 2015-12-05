@@ -1,13 +1,13 @@
-package com.family.grabserver.pipeline;
+package com.family.grabserver.pipeline.maoyan;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.family.grab.Task;
 import com.family.grab.pipeline.PageModelPipeline;
-import com.family.grabserver.entity.ShowPlanMaoyan;
-import com.family.grabserver.model.ShowPlanMaoyanModel;
-import com.family.grabserver.service.ShowPlanMaoyanService;
+import com.family.grabserver.entity.ShowplanMaoyan;
+import com.family.grabserver.model.maoyan.ShowplanMaoyanModel;
+import com.family.grabserver.service.ShowplanMaoyanService;
 import com.family.grabserver.util.MaoyanPriceDecoder;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -25,15 +25,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Component
-public class ShowPlanMaoyanPipeline implements PageModelPipeline<ShowPlanMaoyanModel> {
+public class ShowplanMaoyanPipeline implements PageModelPipeline<ShowplanMaoyanModel> {
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private ShowPlanMaoyanService service;
+    private ShowplanMaoyanService service;
 
 
     @Override
-    public void process(ShowPlanMaoyanModel model, Task task) {
+    public void process(ShowplanMaoyanModel model, Task task) {
         String context = model.getContext();
 
         Pattern p0 = Pattern.compile("(<span class=[\\w\\W]*?</i></span>)");
@@ -77,7 +77,7 @@ public class ShowPlanMaoyanPipeline implements PageModelPipeline<ShowPlanMaoyanM
             for (Object showOb : shows) {
 
                 JSONObject show = (JSONObject) showOb;
-                ShowPlanMaoyan record = new ShowPlanMaoyan();
+                ShowplanMaoyan record = new ShowplanMaoyan();
                 try {
                     record.setId(show.getInteger("showId"));
                     record.setCinemaId(Integer.parseInt(model.getCinemaid()));

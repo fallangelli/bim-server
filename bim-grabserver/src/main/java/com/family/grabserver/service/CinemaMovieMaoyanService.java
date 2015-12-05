@@ -1,7 +1,7 @@
 package com.family.grabserver.service;
 
-import com.family.grabserver.entity.CinemaMovieMaoyan;
-import com.family.grabserver.mapper.CinemaMovieMaoyanMapper;
+import com.family.grabserver.entity.CinemamovieMaoyan;
+import com.family.grabserver.mapper.CinemamovieMaoyanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,15 +9,15 @@ import java.util.List;
 
 @SuppressWarnings("ALL")
 @Service
-public class CinemaMovieMaoyanService {
+public class CinemamovieMaoyanService {
     @Autowired
-    private CinemaMovieMaoyanMapper mapper;
+    private CinemamovieMaoyanMapper mapper;
 
-    public List<CinemaMovieMaoyan> selectAll() {
+    public List<CinemamovieMaoyan> selectAll() {
         return mapper.selectAll();
     }
 
-    public int insertOrUpate(CinemaMovieMaoyan record) {
+    public int insertOrUpate(CinemamovieMaoyan record) {
 
         if (record.getId() == null)
             return mapper.insert(record);

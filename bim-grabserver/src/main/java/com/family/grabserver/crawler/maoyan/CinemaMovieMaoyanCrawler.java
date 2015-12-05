@@ -1,10 +1,10 @@
-package com.family.grabserver.crawler;
+package com.family.grabserver.crawler.maoyan;
 
 import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
 import com.family.grabserver.entity.CinemaMaoyan;
-import com.family.grabserver.model.CinemaMovieMaoyanModel;
-import com.family.grabserver.pipeline.CinemaMoiveMaoyanPipeline;
+import com.family.grabserver.model.maoyan.CinemamovieMaoyanModel;
+import com.family.grabserver.pipeline.maoyan.CinemaMoiveMaoyanPipeline;
 import com.family.grabserver.service.CinemaMaoyanService;
 import com.family.grabserver.util.SqlUtil;
 import com.sun.xml.internal.fastinfoset.util.StringArray;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class CinemaMovieMaoyanCrawler {
+public class CinemamovieMaoyanCrawler {
     @Autowired
     private CinemaMoiveMaoyanPipeline pipeline;
 
@@ -35,7 +35,7 @@ public class CinemaMovieMaoyanCrawler {
         }
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
-        final CinemaMovieMaoyanCrawler jsonCrawler = applicationContext.getBean(CinemaMovieMaoyanCrawler.class);
+        final CinemamovieMaoyanCrawler jsonCrawler = applicationContext.getBean(CinemamovieMaoyanCrawler.class);
         jsonCrawler.crawl();
     }
 
@@ -48,7 +48,7 @@ public class CinemaMovieMaoyanCrawler {
         }
         logger.info("开始抓取影院上映电影");
         OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(1000),
-                pipeline, CinemaMovieMaoyanModel.class).addUrl(urls.getArray())
+                pipeline, CinemamovieMaoyanModel.class).addUrl(urls.getArray())
                 .thread(100).run();
     }
 }

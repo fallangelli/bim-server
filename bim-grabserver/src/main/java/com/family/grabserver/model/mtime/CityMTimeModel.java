@@ -1,4 +1,4 @@
-package com.family.grabserver.model;
+package com.family.grabserver.model.mtime;
 
 import com.family.grab.Page;
 import com.family.grab.Site;
@@ -8,23 +8,20 @@ import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.TargetUrl;
 
-@TargetUrl(value = "http://m.maoyan.com/cinemas/[\\w\\W]*")
-public class MovieShowingMaoyanModel implements AfterExtractor {
+@TargetUrl(value = "http://m.mtime.cn/Service/callback.mi/Showtime/HotCitiesByCinema.api")
+public class CityMtimeModel implements AfterExtractor {
 
-    @ExtractBy(value = "/html/body")
+
+    @ExtractBy(value = "/html/body/text()")
     private String context;
 
     public static void main(String[] args) {
-        OOSpider.create(Site.me()
-                , new ConsolePageModelPipeline(), MovieShowingMaoyanModel.class)
-                .addUrl("http://m.maoyan.com/cinemas/list.json?movieid=117").thread(1).run();
+        OOSpider.create(Site.me().setSleepTime(1000),
+                new ConsolePageModelPipeline(), CityMtimeModel.class)
+                .addUrl("http://m.mtime.cn/Service/callback.mi/Showtime/HotCitiesByCinema.api").thread(1).run();
     }
 
     public String getContext() {
-        context = context.replace("<body>", "");
-        context = context.replace("</body>", "");
-        context = context.replace("\n", "");
-
         return context;
     }
 

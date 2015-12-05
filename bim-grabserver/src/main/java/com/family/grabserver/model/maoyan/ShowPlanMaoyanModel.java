@@ -1,4 +1,4 @@
-package com.family.grabserver.model;
+package com.family.grabserver.model.maoyan;
 
 import com.family.grab.Page;
 import com.family.grab.Site;
@@ -11,7 +11,7 @@ import com.family.grab.model.annotation.TargetUrl;
 import org.slf4j.LoggerFactory;
 
 @TargetUrl("http://m.maoyan.com/showtime/[\\w\\W]*")
-public class ShowPlanMaoyanModel implements AfterExtractor {
+public class ShowplanMaoyanModel implements AfterExtractor {
 
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -27,7 +27,7 @@ public class ShowPlanMaoyanModel implements AfterExtractor {
 
     public static void main(String[] args) {
 
-        OOSpider.create(Site.me(), new ConsolePageModelPipeline(), ShowPlanMaoyanModel.class)
+        OOSpider.create(Site.me(), new ConsolePageModelPipeline(), ShowplanMaoyanModel.class)
 //                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
 //                .addPipeline(new ConsolePipeline())
                 .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=1&movieid=78380").thread(1).run();

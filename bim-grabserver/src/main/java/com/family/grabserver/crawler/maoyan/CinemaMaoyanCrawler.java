@@ -1,10 +1,10 @@
-package com.family.grabserver.crawler;
+package com.family.grabserver.crawler.maoyan;
 
 import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
 import com.family.grabserver.entity.CityMaoyan;
-import com.family.grabserver.model.CinemaMaoyanModel;
-import com.family.grabserver.pipeline.CinemaMaoyanPipeline;
+import com.family.grabserver.model.maoyan.CinemaMaoyanModel;
+import com.family.grabserver.pipeline.maoyan.CinemaMaoyanPipeline;
 import com.family.grabserver.service.CityMaoyanService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +33,28 @@ public class CinemaMaoyanCrawler {
     public void crawl() {
 
         List<CityMaoyan> allCity = cityService.selectAll();
+        String url = "http://m.maoyan.com/cinemas.json?cityId="
+                + 10 + "&cityName=上海";
 
-        for (CityMaoyan city : allCity) {
-            logger.info("开始抓取猫眼影院信息 -  " + city.getName());
-            OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000)
-                            .addCookie("ci", city.getId().toString()),
-                    cinemaMaoyanPipeline, CinemaMaoyanModel.class)
-                    .addUrl("http://m.maoyan.com/cinemas.json?cityName=" + city.getName())
-                    .thread(1).run();
-        }
+        OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000)
+                        .addCookie("ci", "10"),
+                cinemaMaoyanPipeline, CinemaMaoyanModel.class)
+                .addUrl(url)
+                .thread(1).run();
+//        for (CityMaoyan city : allCity) {
+//            logger.info("开始抓取猫眼影院信息 -  " + city.getName());
+//
+//            String url = "http://m.maoyan.com/cinemas.json?cityId="
+//                    + city.getId() + "&cityName=" + city.getName();
+//
+//            OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000)
+//                            .addCookie("ci", city.getId().toString()),
+//                    cinemaMaoyanPipeline, CinemaMaoyanModel.class)
+//                    .addUrl(url)
+//                    .thread(1).run();
+//
+//
+//        }
 
 
     }

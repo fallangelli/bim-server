@@ -1,4 +1,4 @@
-package com.family.grabserver.model;
+package com.family.grabserver.model.maoyan;
 
 import com.family.grab.Page;
 import com.family.grab.Site;
@@ -10,23 +10,26 @@ import com.family.grab.model.annotation.ExtractByUrl;
 import com.family.grab.model.annotation.TargetUrl;
 import com.family.grab.pipeline.ConsolePipeline;
 import com.family.grab.pipeline.JsonFilePipeline;
+import org.apache.commons.codec.digest.DigestUtils;
 
-@TargetUrl(value = "http://m.maoyan.com/[\\w\\W]*")
-public class CinemaMaoyanModel implements AfterExtractor {
+@TargetUrl(value = "http://m.maoyan.com/changecity.json")
+public class CityMaoyanModel implements AfterExtractor {
 
     @ExtractBy(value = "/html/body/text()")
     private String context;
 
+    private String source = "http://m.maoyan.com";
 
-    @ExtractByUrl("cityName=(\\w*\\W*)")
-    private String cityName = "";
+    @ExtractByUrl
+    private String url = "";
+    private String urlMd5 = "";
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000)
-                , new ConsolePageModelPipeline(), CinemaMaoyanModel.class)
+                , new ConsolePageModelPipeline(), CityMaoyanModel.class)
                 .addPipeline(new JsonFilePipeline("D:\\grab\\"))
                 .addPipeline(new ConsolePipeline())
-                .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=153").thread(5).run();
+                .addUrl("http://m.maoyan.com/changecity.json").thread(5).run();
 //        OOSpider.create(Site.me().setSleepTime(1000)
 //                , new ConsolePageModelPipeline(), com.family.grabserver.model.DoubanComing.class)
 //                .addUrl("http://movie.douban.com/coming")
@@ -42,12 +45,13 @@ public class CinemaMaoyanModel implements AfterExtractor {
         this.context = context;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getUrl() {
+        return url;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setUrl(String url) {
+        this.url = url;
+        this.urlMd5 = DigestUtils.md5Hex(url);
     }
 
     @Override

@@ -1,9 +1,9 @@
-package com.family.grabserver.crawler;
+package com.family.grabserver.crawler.maoyan;
 
 import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
-import com.family.grabserver.model.CityMaoyanModel;
-import com.family.grabserver.pipeline.CityMaoyanPipeline;
+import com.family.grabserver.model.maoyan.CityMaoyanModel;
+import com.family.grabserver.pipeline.maoyan.CityMaoyanPipeline;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

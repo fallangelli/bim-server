@@ -1,8 +1,8 @@
 package com.family.grabserver.runner;
 
-import com.family.grabserver.crawler.CinemaMaoyanCrawler;
-import com.family.grabserver.crawler.CityMaoyanCrawler;
-import com.family.grabserver.crawler.ShowPlanMaoyanCrawler;
+import com.family.grabserver.crawler.maoyan.CinemaMaoyanCrawler;
+import com.family.grabserver.crawler.maoyan.CityMaoyanCrawler;
+import com.family.grabserver.crawler.maoyan.ShowplanMaoyanCrawler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,7 +15,7 @@ public class GrabMaoyanRunner {
     @Autowired
     public CinemaMaoyanCrawler cinemaCrawler;
     @Autowired
-    public ShowPlanMaoyanCrawler showCrawler;
+    public ShowplanMaoyanCrawler showCrawler;
 
 
     public static void main(String[] args) {
