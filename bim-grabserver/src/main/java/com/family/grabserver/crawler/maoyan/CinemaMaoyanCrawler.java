@@ -33,28 +33,21 @@ public class CinemaMaoyanCrawler {
     public void crawl() {
 
         List<CityMaoyan> allCity = cityService.selectAll();
-        String url = "http://m.maoyan.com/cinemas.json?cityId="
-                + 10 + "&cityName=上海";
 
-        OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000)
-                        .addCookie("ci", "10"),
-                cinemaMaoyanPipeline, CinemaMaoyanModel.class)
-                .addUrl(url)
-                .thread(1).run();
-//        for (CityMaoyan city : allCity) {
-//            logger.info("开始抓取猫眼影院信息 -  " + city.getName());
-//
-//            String url = "http://m.maoyan.com/cinemas.json?cityId="
-//                    + city.getId() + "&cityName=" + city.getName();
-//
-//            OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000)
-//                            .addCookie("ci", city.getId().toString()),
-//                    cinemaMaoyanPipeline, CinemaMaoyanModel.class)
-//                    .addUrl(url)
-//                    .thread(1).run();
-//
-//
-//        }
+        for (CityMaoyan city : allCity) {
+            logger.info("开始抓取猫眼影院信息 -  " + city.getName());
+
+            String url = "http://m.maoyan.com/cinemas.json?cityId="
+                    + city.getId() + "&cityName=" + city.getName();
+
+            OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000)
+                            .addCookie("ci", city.getId().toString()),
+                    cinemaMaoyanPipeline, CinemaMaoyanModel.class)
+                    .addUrl(url)
+                    .thread(1).run();
+
+
+        }
 
 
     }
