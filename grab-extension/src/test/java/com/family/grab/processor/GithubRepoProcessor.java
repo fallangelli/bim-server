@@ -6,6 +6,7 @@ import com.family.grab.Site;
 import com.family.grab.Task;
 import com.family.grab.downloader.MockGithubDownloader;
 import com.family.grab.model.OOSpider;
+import com.family.grab.pipeline.PageModelPipeline;
 import com.family.grab.pipeline.Pipeline;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -23,6 +24,19 @@ public class GithubRepoProcessor implements PageProcessor {
     @Override
     public Site getSite() {
         return Site.me().addStartUrl("https://github.com/code4craft/grab");
+    }
+
+    @Test
+    public void testRunCycleTriedTimes() {
+        OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(500).setCycleRetryTimes(5).setRetrySleepTime(3000),
+                new PageModelPipeline() {
+                    @Override
+                    public void process(Object o, Task task) {
+
+                    }
+                })
+                .addUrl("http://localhost/404")
+                .thread(1).run();
     }
 
     @Test

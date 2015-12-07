@@ -99,7 +99,8 @@ public class HttpClientDownloader extends AbstractDownloader {
                 return null;
             }
         } catch (IOException e) {
-            logger.warn("download page " + request.getUrl() + " error, left retry time : " + site.getCycleRetryTimes(), e);
+            logger.warn("error " + e.getMessage() + "while downloadint page " + request.getUrl());
+            logger.warn("retry times : " + site.getCycleRetryTimes());
             if (site.getCycleRetryTimes() > 0) {
                 return addToCycleRetry(request, site);
             }

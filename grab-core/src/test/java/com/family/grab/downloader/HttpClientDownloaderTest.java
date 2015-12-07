@@ -56,10 +56,11 @@ public class HttpClientDownloaderTest {
         httpClientDownloader.download("http://www.oschina.net/>");
     }
 
+
     @Test
     public void testCycleTriedTimes() {
         HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
-        Task task = Site.me().setDomain("localhost").setCycleRetryTimes(5).toTask();
+        Task task = Site.me().setDomain("localhost").setCycleRetryTimes(3).toTask();
         Request request = new Request("http://localhost/404");
         Page page = httpClientDownloader.download(request, task);
         assertThat(page.getTargetRequests().size() > 0);
