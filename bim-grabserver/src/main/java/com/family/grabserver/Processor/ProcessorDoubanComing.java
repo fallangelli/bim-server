@@ -10,7 +10,7 @@ import com.family.grab.processor.PageProcessor;
 
 public class ProcessorDoubanComing implements PageProcessor {
 
-    private Site site = Site.me().setRetryTimes(3).setSleepTime(1000);
+    private Site site = Site.me().setCycleRetryTimes(3).setSleepTime(1000);
 
     public static void main(String[] args) {
 

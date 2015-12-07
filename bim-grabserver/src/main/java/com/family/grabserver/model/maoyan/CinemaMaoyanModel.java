@@ -26,7 +26,7 @@ public class CinemaMaoyanModel implements AfterExtractor {
         String url = "http://m.maoyan.com/cinemas.json?cityId="
                 + 362 + "&cityName=测试";
 
-        OOSpider.create(Site.me().setSleepTime(1000)
+        OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(1000).setCycleRetryTimes(4)
                 , new ConsolePageModelPipeline(), CinemaMaoyanModel.class)
                 .addUrl(url).thread(1).run();
 

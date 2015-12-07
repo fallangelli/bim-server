@@ -38,6 +38,7 @@ public class CityMtime {
      * This method returns the value of the database column city_mtime.id
      *
      * @return the value of city_mtime.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -49,6 +50,7 @@ public class CityMtime {
      * This method sets the value of the database column city_mtime.id
      *
      * @param id the value for city_mtime.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -60,6 +62,7 @@ public class CityMtime {
      * This method returns the value of the database column city_mtime.name
      *
      * @return the value of city_mtime.name
+     *
      * @mbggenerated
      */
     public String getName() {
@@ -71,6 +74,7 @@ public class CityMtime {
      * This method sets the value of the database column city_mtime.name
      *
      * @param name the value for city_mtime.name
+     *
      * @mbggenerated
      */
     public void setName(String name) {
@@ -82,6 +86,7 @@ public class CityMtime {
      * This method returns the value of the database column city_mtime.first_letter
      *
      * @return the value of city_mtime.first_letter
+     *
      * @mbggenerated
      */
     public String getFirstLetter() {
@@ -93,6 +98,7 @@ public class CityMtime {
      * This method sets the value of the database column city_mtime.first_letter
      *
      * @param firstLetter the value for city_mtime.first_letter
+     *
      * @mbggenerated
      */
     public void setFirstLetter(String firstLetter) {
@@ -104,6 +110,7 @@ public class CityMtime {
      * This method returns the value of the database column city_mtime.pinyin
      *
      * @return the value of city_mtime.pinyin
+     *
      * @mbggenerated
      */
     public String getPinyin() {
@@ -115,6 +122,7 @@ public class CityMtime {
      * This method sets the value of the database column city_mtime.pinyin
      *
      * @param pinyin the value for city_mtime.pinyin
+     *
      * @mbggenerated
      */
     public void setPinyin(String pinyin) {

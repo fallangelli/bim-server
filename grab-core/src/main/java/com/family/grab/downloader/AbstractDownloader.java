@@ -4,6 +4,8 @@ import com.family.grab.Page;
 import com.family.grab.Request;
 import com.family.grab.Site;
 import com.family.grab.selector.Html;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Base class of downloader with some common methods.
@@ -12,6 +14,7 @@ import com.family.grab.selector.Html;
  * @since 0.5.0
  */
 public abstract class AbstractDownloader implements Downloader {
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * A simple method to download a url.
@@ -44,6 +47,7 @@ public abstract class AbstractDownloader implements Downloader {
         Page page = new Page();
         Object cycleTriedTimesObject = request.getExtra(Request.CYCLE_TRIED_TIMES);
         if (cycleTriedTimesObject == null) {
+            logger.info("add 1 time retry for page " + request.getUrl());
             page.addTargetRequest(request.setPriority(0).putExtra(Request.CYCLE_TRIED_TIMES, 1));
         } else {
             int cycleTriedTimes = (Integer) cycleTriedTimesObject;
@@ -51,6 +55,8 @@ public abstract class AbstractDownloader implements Downloader {
             if (cycleTriedTimes >= site.getCycleRetryTimes()) {
                 return null;
             }
+            logger.info("add " + cycleTriedTimes + "time retry for page " + request.getUrl());
+
             page.addTargetRequest(request.setPriority(0).putExtra(Request.CYCLE_TRIED_TIMES, cycleTriedTimes));
         }
         page.setNeedCycleRetry(true);

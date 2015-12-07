@@ -30,6 +30,7 @@ public class CinemamovieMaoyan {
      * This method returns the value of the database column cinemamovie_maoyan.id
      *
      * @return the value of cinemamovie_maoyan.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -41,6 +42,7 @@ public class CinemamovieMaoyan {
      * This method sets the value of the database column cinemamovie_maoyan.id
      *
      * @param id the value for cinemamovie_maoyan.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -52,6 +54,7 @@ public class CinemamovieMaoyan {
      * This method returns the value of the database column cinemamovie_maoyan.cinema_id
      *
      * @return the value of cinemamovie_maoyan.cinema_id
+     *
      * @mbggenerated
      */
     public Integer getCinemaId() {
@@ -63,6 +66,7 @@ public class CinemamovieMaoyan {
      * This method sets the value of the database column cinemamovie_maoyan.cinema_id
      *
      * @param cinemaId the value for cinemamovie_maoyan.cinema_id
+     *
      * @mbggenerated
      */
     public void setCinemaId(Integer cinemaId) {
@@ -74,6 +78,7 @@ public class CinemamovieMaoyan {
      * This method returns the value of the database column cinemamovie_maoyan.movie_id
      *
      * @return the value of cinemamovie_maoyan.movie_id
+     *
      * @mbggenerated
      */
     public Integer getMovieId() {
@@ -85,6 +90,7 @@ public class CinemamovieMaoyan {
      * This method sets the value of the database column cinemamovie_maoyan.movie_id
      *
      * @param movieId the value for cinemamovie_maoyan.movie_id
+     *
      * @mbggenerated
      */
     public void setMovieId(Integer movieId) {

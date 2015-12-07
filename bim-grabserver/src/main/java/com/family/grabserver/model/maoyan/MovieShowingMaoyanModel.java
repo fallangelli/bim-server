@@ -15,15 +15,12 @@ public class MovieshowingMaoyanModel implements AfterExtractor {
     private String context;
 
     public static void main(String[] args) {
-        OOSpider.create(Site.me()
+        OOSpider.create(Site.me().setTimeOut(30000)
                 , new ConsolePageModelPipeline(), MovieshowingMaoyanModel.class)
                 .addUrl("http://m.maoyan.com/cinemas/list.json?movieid=117").thread(1).run();
     }
 
     public String getContext() {
-        context = context.replace("<body>", "");
-        context = context.replace("</body>", "");
-        context = context.replace("\n", "");
 
         return context;
     }
@@ -34,6 +31,9 @@ public class MovieshowingMaoyanModel implements AfterExtractor {
 
     @Override
     public void afterProcess(Page page) {
+        context = context.replace("<body>", "");
+        context = context.replace("</body>", "");
+        context = context.replace("\n", "");
 
     }
 

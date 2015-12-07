@@ -1,7 +1,6 @@
 package com.family.grabserver.util;
 
 
-import com.sun.xml.internal.fastinfoset.util.StringArray;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class MaoyanPriceDecoder {
         }
         try {
             int splitIndex = html.indexOf('.');
-            StringArray contexts = new StringArray();
+            List<String> contexts = new ArrayList<>();
             if (splitIndex > 0) {
                 contexts.add(html.substring(0, splitIndex));
                 contexts.add(html.substring(splitIndex + 1, html.length()));
@@ -26,7 +25,7 @@ public class MaoyanPriceDecoder {
                 contexts.add(html);
             }
             String resStr = "";
-            for (int index = 0; index < contexts.getSize(); index++) {
+            for (int index = 0; index < contexts.size(); index++) {
                 Pattern p1 = Pattern.compile("<i>([\\d]*?)</i>");
                 Matcher m1 = p1.matcher(contexts.get(index));
                 Integer itemCount = 0;
@@ -65,7 +64,7 @@ public class MaoyanPriceDecoder {
                     }
                 }
 
-                if (contexts.getSize() > 1 && index == 0)
+                if (contexts.size() > 1 && index == 0)
                     resStr += ".";
             }
             float retVal = Float.parseFloat(resStr);

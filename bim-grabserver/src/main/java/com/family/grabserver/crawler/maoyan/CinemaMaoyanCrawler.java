@@ -1,9 +1,6 @@
 package com.family.grabserver.crawler.maoyan;
 
-import com.family.grab.Site;
-import com.family.grab.model.OOSpider;
 import com.family.grabserver.entity.CityMaoyan;
-import com.family.grabserver.model.maoyan.CinemaMaoyanModel;
 import com.family.grabserver.pipeline.maoyan.CinemaMaoyanPipeline;
 import com.family.grabserver.service.CityMaoyanService;
 import org.slf4j.LoggerFactory;
@@ -13,6 +10,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class CinemaMaoyanCrawler {
@@ -31,6 +31,8 @@ public class CinemaMaoyanCrawler {
     }
 
     public void crawl() {
+        ExecutorService pool = Executors.newFixedThreadPool(30);
+
 
         List<CityMaoyan> allCity = cityService.selectAll();
 
@@ -40,15 +42,17 @@ public class CinemaMaoyanCrawler {
             String url = "http://m.maoyan.com/cinemas.json?cityId="
                     + city.getId() + "&cityName=" + city.getName();
 
-            OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000)
-                            .addCookie("ci", city.getId().toString()),
-                    cinemaMaoyanPipeline, CinemaMaoyanModel.class)
-                    .addUrl(url)
-                    .thread(1).run();
-
-
+            CinemaThread th = new CinemaThread(cinemaMaoyanPipeline, city.getId(), url);
+            pool.execute(th);
         }
-
+        pool.shutdown();
+        try {//等待直到所有任务完成
+            pool.awaitTermination(Long.MAX_VALUE, TimeUnit.MINUTES);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        logger.info("完成抓取猫眼影院信息");
 
     }
+
 }

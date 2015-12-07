@@ -110,6 +110,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.id
      *
      * @return the value of cinema_mtime.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -121,6 +122,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.id
      *
      * @param id the value for cinema_mtime.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -132,6 +134,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.city_id
      *
      * @return the value of cinema_mtime.city_id
+     *
      * @mbggenerated
      */
     public Integer getCityId() {
@@ -143,6 +146,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.city_id
      *
      * @param cityId the value for cinema_mtime.city_id
+     *
      * @mbggenerated
      */
     public void setCityId(Integer cityId) {
@@ -154,6 +158,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.district_id
      *
      * @return the value of cinema_mtime.district_id
+     *
      * @mbggenerated
      */
     public Integer getDistrictId() {
@@ -165,6 +170,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.district_id
      *
      * @param districtId the value for cinema_mtime.district_id
+     *
      * @mbggenerated
      */
     public void setDistrictId(Integer districtId) {
@@ -176,6 +182,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.nm
      *
      * @return the value of cinema_mtime.nm
+     *
      * @mbggenerated
      */
     public String getNm() {
@@ -187,6 +194,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.nm
      *
      * @param nm the value for cinema_mtime.nm
+     *
      * @mbggenerated
      */
     public void setNm(String nm) {
@@ -198,6 +206,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.addr
      *
      * @return the value of cinema_mtime.addr
+     *
      * @mbggenerated
      */
     public String getAddr() {
@@ -209,6 +218,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.addr
      *
      * @param addr the value for cinema_mtime.addr
+     *
      * @mbggenerated
      */
     public void setAddr(String addr) {
@@ -220,6 +230,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.lat
      *
      * @return the value of cinema_mtime.lat
+     *
      * @mbggenerated
      */
     public String getLat() {
@@ -231,6 +242,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.lat
      *
      * @param lat the value for cinema_mtime.lat
+     *
      * @mbggenerated
      */
     public void setLat(String lat) {
@@ -242,6 +254,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.lng
      *
      * @return the value of cinema_mtime.lng
+     *
      * @mbggenerated
      */
     public String getLng() {
@@ -253,6 +266,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.lng
      *
      * @param lng the value for cinema_mtime.lng
+     *
      * @mbggenerated
      */
     public void setLng(String lng) {
@@ -264,6 +278,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.rating
      *
      * @return the value of cinema_mtime.rating
+     *
      * @mbggenerated
      */
     public String getRating() {
@@ -275,6 +290,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.rating
      *
      * @param rating the value for cinema_mtime.rating
+     *
      * @mbggenerated
      */
     public void setRating(String rating) {
@@ -286,6 +302,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.has_3d
      *
      * @return the value of cinema_mtime.has_3d
+     *
      * @mbggenerated
      */
     public Boolean getHas3d() {
@@ -297,6 +314,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.has_3d
      *
      * @param has3d the value for cinema_mtime.has_3d
+     *
      * @mbggenerated
      */
     public void setHas3d(Boolean has3d) {
@@ -308,6 +326,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.has_imax
      *
      * @return the value of cinema_mtime.has_imax
+     *
      * @mbggenerated
      */
     public Boolean getHasImax() {
@@ -319,6 +338,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.has_imax
      *
      * @param hasImax the value for cinema_mtime.has_imax
+     *
      * @mbggenerated
      */
     public void setHasImax(Boolean hasImax) {
@@ -330,6 +350,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.has_Wifi
      *
      * @return the value of cinema_mtime.has_Wifi
+     *
      * @mbggenerated
      */
     public Boolean getHasWifi() {
@@ -341,6 +362,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.has_Wifi
      *
      * @param hasWifi the value for cinema_mtime.has_Wifi
+     *
      * @mbggenerated
      */
     public void setHasWifi(Boolean hasWifi) {
@@ -352,6 +374,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.has_Park
      *
      * @return the value of cinema_mtime.has_Park
+     *
      * @mbggenerated
      */
     public Boolean getHasPark() {
@@ -363,6 +386,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.has_Park
      *
      * @param hasPark the value for cinema_mtime.has_Park
+     *
      * @mbggenerated
      */
     public void setHasPark(Boolean hasPark) {
@@ -374,6 +398,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.tel
      *
      * @return the value of cinema_mtime.tel
+     *
      * @mbggenerated
      */
     public String getTel() {
@@ -385,6 +410,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.tel
      *
      * @param tel the value for cinema_mtime.tel
+     *
      * @mbggenerated
      */
     public void setTel(String tel) {

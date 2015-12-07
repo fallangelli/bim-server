@@ -134,6 +134,7 @@ public class CinemaMaoyan {
      * This method returns the value of the database column cinema_maoyan.city_id
      *
      * @return the value of cinema_maoyan.city_id
+     *
      * @mbggenerated
      */
     public Integer getCityId() {
@@ -145,6 +146,7 @@ public class CinemaMaoyan {
      * This method sets the value of the database column cinema_maoyan.city_id
      *
      * @param cityId the value for cinema_maoyan.city_id
+     *
      * @mbggenerated
      */
     public void setCityId(Integer cityId) {

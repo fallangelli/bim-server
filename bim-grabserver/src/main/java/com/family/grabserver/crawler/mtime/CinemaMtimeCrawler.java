@@ -6,13 +6,13 @@ import com.family.grabserver.entity.CityMtime;
 import com.family.grabserver.model.mtime.CinemaMtimeModel;
 import com.family.grabserver.pipeline.mtime.CinemaMtimePipeline;
 import com.family.grabserver.service.CityMtimeService;
-import com.sun.xml.internal.fastinfoset.util.StringArray;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -35,15 +35,15 @@ public class CinemaMtimeCrawler {
 
         List<CityMtime> allCity = cityService.selectAll();
 
-        StringArray urls = new StringArray();
+        List<String> urls = new ArrayList<String>();
         for (CityMtime city : allCity) {
             urls.add("http://m.mtime.cn/Service/callback.mi/" +
                     "OnlineLocationCinema/OnlineCinemasByCity.api?locationId=" + city.getId());
         }
         logger.info("开始抓取 时光 影院信息");
-        OOSpider.create(Site.me().setRetryTimes(5).setRetrySleepTime(3000),
+        OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(500).setCycleRetryTimes(5).setRetrySleepTime(3000),
                 cinemaMtimePipeline, CinemaMtimeModel.class)
-                .addUrl(urls.getArray())
+                .addUrl((String[]) urls.toArray(new String[]{}))
                 .thread(50).run();
 
     }

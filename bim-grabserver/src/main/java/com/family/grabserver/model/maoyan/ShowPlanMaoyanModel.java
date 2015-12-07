@@ -27,7 +27,7 @@ public class ShowplanMaoyanModel implements AfterExtractor {
 
     public static void main(String[] args) {
 
-        OOSpider.create(Site.me(), new ConsolePageModelPipeline(), ShowplanMaoyanModel.class)
+        OOSpider.create(Site.me().setTimeOut(30000), new ConsolePageModelPipeline(), ShowplanMaoyanModel.class)
 //                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
 //                .addPipeline(new ConsolePipeline())
                 .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=1&movieid=78380").thread(1).run();
@@ -41,9 +41,7 @@ public class ShowplanMaoyanModel implements AfterExtractor {
     }
 
     public String getContext() {
-        context = context.replace("<body>", "");
-        context = context.replace("</body>", "");
-        context = context.replace("\n", "");
+
         return context;
     }
 
@@ -75,7 +73,9 @@ public class ShowplanMaoyanModel implements AfterExtractor {
 
     @Override
     public void afterProcess(Page page) {
-
+        context = context.replace("<body>", "");
+        context = context.replace("</body>", "");
+        context = context.replace("\n", "");
     }
 
 }
