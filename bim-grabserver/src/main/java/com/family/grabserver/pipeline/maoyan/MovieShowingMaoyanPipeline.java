@@ -41,9 +41,8 @@ public class MovieshowingMaoyanPipeline implements PageModelPipeline<Movieshowin
             record.setNm(movie.getString("nm"));
             record.setImg(movie.getString("img"));
             record.setSc(movie.getString("sc"));
-            record.setSrc(movie.getString("src"));
-            record.setImax(movie.getBoolean("imax"));
-            record.setIs3d(movie.getBoolean("3d"));
+            record.setHasImax(movie.getBoolean("imax"));
+            record.setHas3d(movie.getBoolean("3d"));
             record.setDir(movie.getString("dir"));
             record.setStar(movie.getString("star"));
             record.setCat(movie.getString("cat"));

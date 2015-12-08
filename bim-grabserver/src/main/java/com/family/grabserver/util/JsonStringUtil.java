@@ -1,10 +1,12 @@
 package com.family.grabserver.util;
 
+import com.alibaba.fastjson.JSONArray;
+
 /**
  * Created by Administrator on 2015/12/7.
  */
 public class JsonStringUtil {
-    public static String jsonString(String s) {
+    public static String clearQuotation(String s) {
         char[] temp = s.toCharArray();
         int n = temp.length;
         for (int i = 0; i < n; i++) {
@@ -21,5 +23,17 @@ public class JsonStringUtil {
             }
         }
         return new String(temp);
+    }
+
+    public static String toSplitString(JSONArray ja) {
+        Object[] ig = ja.toArray();
+        String str = "";
+        if (ig != null && ig.length > 0) {
+            for (int i = 0; i < ig.length; i++) {
+                str += (String) ig[i] + ",";
+            }
+        }
+        str = str.substring(0, str.length() - 1);
+        return str;
     }
 }

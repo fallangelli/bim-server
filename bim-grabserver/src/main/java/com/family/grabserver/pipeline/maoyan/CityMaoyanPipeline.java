@@ -25,15 +25,14 @@ public class CityMaoyanPipeline implements PageModelPipeline<CityMaoyanModel> {
         JSONObject data = (JSONObject) ob.get("data");
         JSONObject cityMap = (JSONObject) data.get("CityMap");
         for (String key : cityMap.keySet()) {
-            String firstLetter = key;
             JSONArray citys = (JSONArray) cityMap.get(key);
             for (Object cityOb : citys) {
                 JSONObject city = (JSONObject) cityOb;
                 CityMaoyan record = new CityMaoyan();
                 record.setId(city.getInteger("id"));
                 record.setName(city.getString("name"));
-                record.setPinyin(city.getString("pinyin"));
-                record.setFirstLetter(firstLetter);
+                record.setPinyin(city.getString("pinyin").toLowerCase());
+                record.setFirstLetter(city.getString("pinyin").substring(0, 1).toUpperCase());
 
                 service.insertOrUpate(record);
             }

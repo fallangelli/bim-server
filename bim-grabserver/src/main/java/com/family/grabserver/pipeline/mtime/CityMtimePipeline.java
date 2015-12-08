@@ -28,9 +28,9 @@ public class CityMtimePipeline implements PageModelPipeline<CityMtimeModel> {
             CityMtime record = new CityMtime();
             record.setId(city.getInteger("id"));
             record.setName(city.getString("n"));
-            String py = city.getString("pinyinFull");
+            String py = city.getString("pinyinFull").toLowerCase();
             record.setPinyin(py);
-            record.setFirstLetter(py.substring(0, 1));
+            record.setFirstLetter(py.substring(0, 1).toUpperCase());
 
             service.insertOrUpate(record);
         }

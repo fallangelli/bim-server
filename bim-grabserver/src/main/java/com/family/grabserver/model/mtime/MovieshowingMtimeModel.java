@@ -44,7 +44,7 @@ public class MovieshowingMtimeModel implements AfterExtractor {
 
     @Override
     public void afterProcess(Page page) {
-        context = JsonStringUtil.jsonString(context);
+        context = JsonStringUtil.clearQuotation(context);
     }
 
 }

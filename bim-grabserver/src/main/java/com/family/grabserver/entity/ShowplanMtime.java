@@ -96,6 +96,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.id
      *
      * @return the value of showplan_mtime.id
+     *
      * @mbggenerated
      */
     public Integer getId() {
@@ -107,6 +108,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.id
      *
      * @param id the value for showplan_mtime.id
+     *
      * @mbggenerated
      */
     public void setId(Integer id) {
@@ -118,6 +120,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.cinema_id
      *
      * @return the value of showplan_mtime.cinema_id
+     *
      * @mbggenerated
      */
     public Integer getCinemaId() {
@@ -129,6 +132,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.cinema_id
      *
      * @param cinemaId the value for showplan_mtime.cinema_id
+     *
      * @mbggenerated
      */
     public void setCinemaId(Integer cinemaId) {
@@ -140,6 +144,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.movie_id
      *
      * @return the value of showplan_mtime.movie_id
+     *
      * @mbggenerated
      */
     public Integer getMovieId() {
@@ -151,6 +156,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.movie_id
      *
      * @param movieId the value for showplan_mtime.movie_id
+     *
      * @mbggenerated
      */
     public void setMovieId(Integer movieId) {
@@ -162,6 +168,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.dt
      *
      * @return the value of showplan_mtime.dt
+     *
      * @mbggenerated
      */
     public Date getDt() {
@@ -173,6 +180,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.dt
      *
      * @param dt the value for showplan_mtime.dt
+     *
      * @mbggenerated
      */
     public void setDt(Date dt) {
@@ -184,6 +192,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.tm
      *
      * @return the value of showplan_mtime.tm
+     *
      * @mbggenerated
      */
     public Date getTm() {
@@ -195,6 +204,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.tm
      *
      * @param tm the value for showplan_mtime.tm
+     *
      * @mbggenerated
      */
     public void setTm(Date tm) {
@@ -206,6 +216,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.end
      *
      * @return the value of showplan_mtime.end
+     *
      * @mbggenerated
      */
     public Date getEnd() {
@@ -217,6 +228,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.end
      *
      * @param end the value for showplan_mtime.end
+     *
      * @mbggenerated
      */
     public void setEnd(Date end) {
@@ -228,6 +240,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.lang
      *
      * @return the value of showplan_mtime.lang
+     *
      * @mbggenerated
      */
     public String getLang() {
@@ -239,6 +252,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.lang
      *
      * @param lang the value for showplan_mtime.lang
+     *
      * @mbggenerated
      */
     public void setLang(String lang) {
@@ -250,6 +264,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.th
      *
      * @return the value of showplan_mtime.th
+     *
      * @mbggenerated
      */
     public String getTh() {
@@ -261,6 +276,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.th
      *
      * @param th the value for showplan_mtime.th
+     *
      * @mbggenerated
      */
     public void setTh(String th) {
@@ -272,6 +288,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.tp
      *
      * @return the value of showplan_mtime.tp
+     *
      * @mbggenerated
      */
     public String getTp() {
@@ -283,6 +300,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.tp
      *
      * @param tp the value for showplan_mtime.tp
+     *
      * @mbggenerated
      */
     public void setTp(String tp) {
@@ -294,6 +312,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.sellPr
      *
      * @return the value of showplan_mtime.sellPr
+     *
      * @mbggenerated
      */
     public Float getSellpr() {
@@ -305,6 +324,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.sellPr
      *
      * @param sellpr the value for showplan_mtime.sellPr
+     *
      * @mbggenerated
      */
     public void setSellpr(Float sellpr) {
@@ -316,6 +336,7 @@ public class ShowplanMtime {
      * This method returns the value of the database column showplan_mtime.pr
      *
      * @return the value of showplan_mtime.pr
+     *
      * @mbggenerated
      */
     public Float getPr() {
@@ -327,6 +348,7 @@ public class ShowplanMtime {
      * This method sets the value of the database column showplan_mtime.pr
      *
      * @param pr the value for showplan_mtime.pr
+     *
      * @mbggenerated
      */
     public void setPr(Float pr) {
