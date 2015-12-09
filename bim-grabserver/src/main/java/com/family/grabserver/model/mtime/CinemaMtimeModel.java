@@ -3,11 +3,11 @@ package com.family.grabserver.model.mtime;
 import com.family.grab.Page;
 import com.family.grab.Site;
 import com.family.grab.model.AfterExtractor;
-import com.family.grab.model.ConsolePageModelPipeline;
 import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.ExtractByUrl;
 import com.family.grab.model.annotation.TargetUrl;
+import com.family.grabserver.pipeline.mtime.CinemaMtimePipeline;
 
 @TargetUrl(value = "http://m.mtime.cn/[\\w\\W]*")
 public class CinemaMtimeModel implements AfterExtractor {
@@ -16,13 +16,13 @@ public class CinemaMtimeModel implements AfterExtractor {
     private String context;
 
 
-    @ExtractByUrl("locationId=(\\d*)[&]?")
-    private String cityId = "";
+    @ExtractByUrl("cinemaId=(\\d*)[&]?")
+    private String cinemaId = "";
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000)
-                , new ConsolePageModelPipeline(), CinemaMtimeModel.class)
-                .addUrl("http://m.mtime.cn/Service/callback.mi/OnlineLocationCinema/OnlineCinemasByCity.api?locationId=290")
+                , new CinemaMtimePipeline(), CinemaMtimeModel.class)
+                .addUrl("http://m.mtime.cn/Service/callback.mi/Cinema/Detail.api?cinemaId=1052")
                 .thread(1).run();
     }
 
@@ -34,12 +34,12 @@ public class CinemaMtimeModel implements AfterExtractor {
         this.context = context;
     }
 
-    public String getCityId() {
-        return cityId;
+    public String getCinemaId() {
+        return cinemaId;
     }
 
-    public void setCityId(String cityId) {
-        this.cityId = cityId;
+    public void setCinemaId(String cinemaId) {
+        this.cinemaId = cinemaId;
     }
 
     @Override

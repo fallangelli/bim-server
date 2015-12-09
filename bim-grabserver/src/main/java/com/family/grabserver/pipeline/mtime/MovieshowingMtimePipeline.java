@@ -29,23 +29,23 @@ public class MovieshowingMtimePipeline implements PageModelPipeline<Movieshowing
 
         MovieshowingMtime record = new MovieshowingMtime();
         record.setId(Integer.parseInt(model.getMovieId()));
-        record.setNm(movie.getString("titleCn"));
-        record.setImg(movie.getString("image"));
-        record.setSc(movie.getString("rating"));
-        record.setHasImax(movie.getBoolean("isIMAX"));
-        record.setHas3d(movie.getBoolean("is3D"));
+        record.setName(movie.getString("titleCn"));
+        record.setImage(movie.getString("image"));
+        record.setRating(movie.getString("rating"));
+        record.setIsImax(movie.getBoolean("isIMAX"));
+        record.setIs3d(movie.getBoolean("is3D"));
 
         JSONArray dirs = movie.getJSONArray("directors");
-        record.setDir(JsonStringUtil.toSplitString(dirs));
+        record.setDirectors(JsonStringUtil.toSplitString(dirs));
 
         JSONArray actors = movie.getJSONArray("actors");
-        record.setStar(JsonStringUtil.toSplitString(actors));
+        record.setActors(JsonStringUtil.toSplitString(actors));
 
         JSONArray types = movie.getJSONArray("type");
-        record.setCat(JsonStringUtil.toSplitString(types));
+        record.setType(JsonStringUtil.toSplitString(types));
 
-        record.setScm(movie.getString("content"));
-        record.setDur(movie.getString("runTime"));
+        record.setContent(movie.getString("content"));
+        record.setRuntime(movie.getString("runTime"));
         service.insertOrUpate(record);
     }
 }

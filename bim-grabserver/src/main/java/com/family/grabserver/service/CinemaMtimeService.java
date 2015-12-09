@@ -17,6 +17,10 @@ public class CinemaMtimeService {
         return mapper.selectAll();
     }
 
+    public CinemaMtime selectByPrimaryKey(Integer id) {
+        return mapper.selectByPrimaryKey(id);
+    }
+
     public int insertOrUpate(CinemaMtime record) {
         if (record.getId() == null)
             return mapper.insert(record);

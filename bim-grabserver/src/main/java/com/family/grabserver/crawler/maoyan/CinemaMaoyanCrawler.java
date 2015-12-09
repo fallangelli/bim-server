@@ -40,7 +40,7 @@ public class CinemaMaoyanCrawler {
             logger.info("开始抓取猫眼影院信息 -  " + city.getName());
 
             String url = "http://m.maoyan.com/cinemas.json?cityId="
-                    + city.getId() + "&cityName=" + city.getName();
+                    + city.getId();
 
             CinemaThread th = new CinemaThread(cinemaMaoyanPipeline, city.getId(), url);
             pool.execute(th);

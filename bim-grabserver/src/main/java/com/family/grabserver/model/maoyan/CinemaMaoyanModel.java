@@ -15,11 +15,8 @@ public class CinemaMaoyanModel implements AfterExtractor {
     @ExtractBy(value = "/html/body/text()")
     private String context;
 
-    @ExtractByUrl("cityId=(\\d*)&")
+    @ExtractByUrl("cityId=(\\d*)[&]?")
     private String cityId = "";
-
-    @ExtractByUrl("cityName=(\\w*\\W*)")
-    private String cityName = "";
 
     public static void main(String[] args) {
 
@@ -46,14 +43,6 @@ public class CinemaMaoyanModel implements AfterExtractor {
 
     public void setCityId(String cityId) {
         this.cityId = cityId;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
     }
 
     @Override

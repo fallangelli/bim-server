@@ -38,16 +38,16 @@ public class MovieshowingMaoyanPipeline implements PageModelPipeline<Movieshowin
 
             MovieshowingMaoyan record = new MovieshowingMaoyan();
             record.setId(movie.getInteger("id"));
-            record.setNm(movie.getString("nm"));
-            record.setImg(movie.getString("img"));
-            record.setSc(movie.getString("sc"));
-            record.setHasImax(movie.getBoolean("imax"));
-            record.setHas3d(movie.getBoolean("3d"));
-            record.setDir(movie.getString("dir"));
-            record.setStar(movie.getString("star"));
-            record.setCat(movie.getString("cat"));
-            record.setScm(movie.getString("scm"));
-            record.setDur(movie.getString("dur"));
+            record.setName(movie.getString("nm"));
+            record.setImage(movie.getString("img"));
+            record.setRating(movie.getString("sc"));
+            record.setIsImax(movie.getBoolean("imax"));
+            record.setIs3d(movie.getBoolean("3d"));
+            record.setDirectors(movie.getString("dir"));
+            record.setActors(movie.getString("star"));
+            record.setType(movie.getString("cat"));
+            record.setContent(movie.getString("scm"));
+            record.setRuntime(movie.getString("dur"));
             record.setVer(movie.getString("ver"));
             service.insertOrUpate(record);
         } catch (Exception e) {
