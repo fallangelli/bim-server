@@ -17,4 +17,8 @@ public interface SolidifyMapper {
     void merge_cinema_mtime();
 
     void merge_cinema_maoyan();
+
+    void merge_showplan_mtime();
+
+    void merge_showplan_maoyan();
 }

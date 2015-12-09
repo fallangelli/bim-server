@@ -1,6 +1,9 @@
 package com.family.grabserver.crawler.maoyan;
 
+import com.family.grab.Site;
+import com.family.grab.model.OOSpider;
 import com.family.grabserver.entity.CityMaoyan;
+import com.family.grabserver.model.maoyan.CinemaMaoyanModel;
 import com.family.grabserver.pipeline.maoyan.CinemaMaoyanPipeline;
 import com.family.grabserver.service.CityMaoyanService;
 import org.slf4j.LoggerFactory;
@@ -36,13 +39,13 @@ public class CinemaMaoyanCrawler {
 
         List<CityMaoyan> allCity = cityService.selectAll();
 
-        for (CityMaoyan city : allCity) {
-            logger.info("开始抓取猫眼影院信息 -  " + city.getName());
+        logger.info("开始抓取 猫眼 影院信息");
 
+        for (CityMaoyan city : allCity) {
             String url = "http://m.maoyan.com/cinemas.json?cityId="
                     + city.getId();
 
-            CinemaThread th = new CinemaThread(cinemaMaoyanPipeline, city.getId(), url);
+            CinemaMaoyanCrawler.CinemaThread th = new CinemaThread(cinemaMaoyanPipeline, city.getId(), url);
             pool.execute(th);
         }
         pool.shutdown();
@@ -51,7 +54,54 @@ public class CinemaMaoyanCrawler {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        logger.info("完成抓取猫眼影院信息");
+        logger.info("完成抓取 猫眼 影院信息");
+
+    }
+
+
+    public class CinemaThread implements Runnable {
+        CinemaMaoyanPipeline cinemaMaoyanPipeline;
+        Integer cityId;
+        String url;
+
+        public CinemaThread(CinemaMaoyanPipeline cinemaMaoyanPipeline, Integer cityId, String url) {
+            this.cinemaMaoyanPipeline = cinemaMaoyanPipeline;
+            this.cityId = cityId;
+            this.url = url;
+        }
+
+        @Override
+        public void run() {
+            OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(500).setCycleRetryTimes(5).setRetrySleepTime(3000)
+                            .addCookie("ci", cityId.toString()),
+                    cinemaMaoyanPipeline, CinemaMaoyanModel.class)
+                    .addUrl(url)
+                    .thread(1).run();
+        }
+
+        public Integer getCityId() {
+            return cityId;
+        }
+
+        public void setCityId(Integer cityId) {
+            this.cityId = cityId;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public CinemaMaoyanPipeline getCinemaMaoyanPipeline() {
+            return cinemaMaoyanPipeline;
+        }
+
+        public void setCinemaMaoyanPipeline(CinemaMaoyanPipeline cinemaMaoyanPipeline) {
+            this.cinemaMaoyanPipeline = cinemaMaoyanPipeline;
+        }
 
     }
 

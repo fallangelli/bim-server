@@ -1,6 +1,7 @@
 package com.family.grabserver.service;
 
 import com.family.grabserver.mapper.SolidifyMapper;
+import com.family.grabserver.util.SqlUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,14 @@ public class MergeService {
     private SolidifyMapper mapper;
 
     public void merge() {
+        try {
+            SqlUtil.deleteAll("bim_base.showplan");
+            SqlUtil.deleteAll("bim_base.movieshowing");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
         mapper.merge_city_maoyan();
         mapper.merge_city_mtime();
 
@@ -25,6 +34,9 @@ public class MergeService {
 
         mapper.merge_cinema_mtime();
         mapper.merge_cinema_maoyan();
+
+        mapper.merge_showplan_maoyan();
+        mapper.merge_showplan_mtime();
     }
 
 }

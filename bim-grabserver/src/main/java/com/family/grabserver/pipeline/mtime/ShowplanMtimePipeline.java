@@ -34,19 +34,29 @@ public class ShowplanMtimePipeline implements PageModelPipeline<ShowplanMtimeMod
 
             JSONObject show = (JSONObject) showOb;
 
-            if (show.getFloat("startTime") < 0) {
+            if (show.getJSONArray("provider").size() <= 0 ||
+                    show.getFloat("startTime") < 0) {
                 continue;
             }
 
             ShowplanMtime record = new ShowplanMtime();
 
+
             record.setId(show.getInteger("sid"));
+            JSONArray providers = show.getJSONArray("provider");
+            for (Object providerOb : providers) {
+                JSONObject provider = (JSONObject) providerOb;
+                String ticketURL = "http://m.mtime.cn/#!/onlineticket/" + provider.getInteger("dId") + "/";
+                record.setTicketUrl(ticketURL);
+            }
+
+
             record.setCinemaId(Integer.parseInt(model.getCinemaId()));
             record.setMovieId(Integer.parseInt(model.getMovieId()));
 
             DateFormat dtfmt = new SimpleDateFormat("yyyy-MM-dd");
             try {
-                record.setDt(dtfmt.parse(model.getShowDate()));
+                record.setShowDate(dtfmt.parse(model.getShowDate()));
             } catch (ParseException e) {
                 logger.error("无法解析上映时间" + context);
                 e.printStackTrace();
@@ -58,17 +68,17 @@ public class ShowplanMtimePipeline implements PageModelPipeline<ShowplanMtimeMod
             cal.clear();
             int zoneOffset = cal.get(java.util.Calendar.ZONE_OFFSET);
             cal.setTimeInMillis(showDay * 1000 - zoneOffset);
-            record.setTm(cal.getTime());
+            record.setStartTime(cal.getTime());
             cal.add(Calendar.MINUTE, show.getInteger("length"));
-            record.setEnd(cal.getTime());
+            record.setEndTime(cal.getTime());
 
-            record.setLang(show.getString("language"));
+            record.setLanguage(show.getString("language"));
 
-            record.setTh(show.getString("hall"));
+            record.setHall(show.getString("hall"));
 
-            record.setTp(show.getString("versionDesc"));
-            record.setSellpr(show.getFloat("salePrice") / 100);
-            record.setPr(show.getFloat("cinemaPrice") / 100);
+            record.setVersiondesc(show.getString("versionDesc"));
+            record.setSaleprice(show.getFloat("salePrice") / 100);
+            record.setCinemaprice(show.getFloat("cinemaPrice") / 100);
 
             service.insertOrUpate(record);
 

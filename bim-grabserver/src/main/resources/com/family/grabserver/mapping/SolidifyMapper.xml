@@ -136,6 +136,50 @@
                 JOIN bim_base.city c ON c.id_maoyan = cim.city_id
                 JOIN bim_base.city_area ca ON ca.area = cim.area AND ca.city_id = c.id
         ON DUPLICATE KEY UPDATE id_maoyan = cim.id
+    </insert>
 
+    <delete id="deleteAllShowplan">
+        DELETE FROM bim_base.showplan
+    </delete>
+
+    <insert id="merge_showplan_maoyan">
+        INSERT INTO bim_base.showplan (cinema_id, movie_id, show_date, start_time, end_time, language, hall, versionDesc, salePrice, cinemaPrice, ticket_url)
+            SELECT
+                c.id AS cinema_id,
+                m.id AS movie_id,
+                show_date,
+                start_time,
+                end_time,
+                language,
+                hall,
+                versionDesc,
+                salePrice,
+                cinemaPrice,
+                ticket_url
+            FROM bim_grab.showplan_maoyan pm
+                JOIN bim_base.movieshowing m ON pm.movie_id = m.id_maoyan
+                JOIN bim_base.cinema c ON pm.cinema_id = c.id_maoyan
+        ON DUPLICATE KEY UPDATE ticket_url = pm.ticket_url
+    </insert>
+
+    <insert id="merge_showplan_mtime">
+        INSERT INTO bim_base.showplan (cinema_id, movie_id, show_date, start_time, end_time, language, hall,
+        versionDesc, salePrice, cinemaPrice, ticket_url)
+        SELECT
+        c.id AS cinema_id,
+        m.id AS movie_id,
+        show_date,
+        start_time,
+        end_time,
+        language,
+        hall,
+        versionDesc,
+        salePrice,
+        cinemaPrice,
+        ticket_url
+        FROM bim_grab.showplan_mtime pm
+        JOIN bim_base.movieshowing m ON pm.movie_id = m.id_mtime
+        JOIN bim_base.cinema c ON pm.cinema_id = c.id_mtime
+        ON DUPLICATE KEY UPDATE ticket_url = pm.ticket_url
     </insert>
 </mapper>

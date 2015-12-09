@@ -406,6 +406,7 @@ public class CinemaMtime {
      * This method returns the value of the database column cinema_mtime.route
      *
      * @return the value of cinema_mtime.route
+     *
      * @mbggenerated
      */
     public String getRoute() {
@@ -417,6 +418,7 @@ public class CinemaMtime {
      * This method sets the value of the database column cinema_mtime.route
      *
      * @param route the value for cinema_mtime.route
+     *
      * @mbggenerated
      */
     public void setRoute(String route) {

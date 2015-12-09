@@ -22,7 +22,7 @@ public class MovieshowingMtimeModel implements AfterExtractor {
     public static void main(String[] args) {
         OOSpider.create(Site.me()
                 , new MovieshowingMtimePipeline(), MovieshowingMtimeModel.class)
-                .addUrl("http://m.mtime.cn/Service/callback.mi/movie/Detail.api?movieId=223996").thread(1).run();
+                .addUrl("http://m.mtime.cn/Service/callback.mi/movie/Detail.api?movieId=105633").thread(1).run();
     }
 
     public String getContext() {
@@ -45,6 +45,7 @@ public class MovieshowingMtimeModel implements AfterExtractor {
     @Override
     public void afterProcess(Page page) {
         context = JsonStringUtil.clearQuotation(context);
+        context = context.replace("\\”", "");
     }
 
 }

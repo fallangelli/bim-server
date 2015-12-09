@@ -50,13 +50,11 @@ public class ShowplanMtimeCrawler {
             return;
         }
 
-
         List<CinemamovieMtime> cmList = cinemaMovieService.selectAll();
 
 
         List<String> urls = new ArrayList<>();
         for (CinemamovieMtime cm : cmList) {
-
             //电影不存在则添加
             if (movieService.selectByPrimaryKey(cm.getMovieId()) == null) {
                 logger.info("添加 时光 电影基本信息 - " + cm.getMovieId());
@@ -73,9 +71,8 @@ public class ShowplanMtimeCrawler {
                         "&date=" + date;
                 urls.add(movieUrl);
             }
-
         }
-        logger.info("开始抓取 时光 场次信息 - ");
+        logger.info("开始抓取 时光 场次信息");
         OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(500).setCycleRetryTimes(5).setRetrySleepTime(3000),
                 pipeline, ShowplanMtimeModel.class)
                 .addUrl((String[]) urls.toArray(new String[]{}))

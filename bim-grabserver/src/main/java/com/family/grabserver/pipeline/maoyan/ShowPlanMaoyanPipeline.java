@@ -17,7 +17,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -50,18 +49,27 @@ public class ShowplanMaoyanPipeline implements PageModelPipeline<ShowplanMaoyanM
         Matcher m = p.matcher(context);
         if (m.find()) {
             String url = m.group(1);
-            try {
-                HttpGet request = new HttpGet(url);
-                HttpResponse response = null;
-                response = HttpClients.createDefault().execute(request);
-                if (response.getStatusLine().getStatusCode() == 200) {
-                    decodeCssContent = EntityUtils.toString(response.getEntity());
-                } else {
-                    logger.error("无法获取解码css内容" + context);
-                    return;
+            int retryTimes = 5;
+            while (retryTimes > 0) {
+                try {
+                    HttpGet request = new HttpGet(url);
+                    HttpResponse response = null;
+                    response = HttpClients.createDefault().execute(request);
+                    Thread.sleep(500);
+                    if (response.getStatusLine().getStatusCode() == 200) {
+                        decodeCssContent = EntityUtils.toString(response.getEntity());
+                        break;
+                    } else {
+                        logger.error("无法获取解码css内容" + context);
+                        retryTimes--;
+                        logger.error("重试次数:" + retryTimes + ",url:" + url);
+                        continue;
+                    }
+                } catch (Exception e) {
+                    retryTimes--;
+                    logger.error("重试次数:" + retryTimes + ",url:" + url);
+                    continue;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         } else {
             logger.error("无法获取解码css地址" + context);
@@ -82,21 +90,25 @@ public class ShowplanMaoyanPipeline implements PageModelPipeline<ShowplanMaoyanM
                     record.setId(show.getInteger("showId"));
                     record.setCinemaId(Integer.parseInt(model.getCinemaid()));
                     record.setMovieId(Integer.parseInt(model.getMovieid()));
-                    record.setDt(show.getDate("dt"));
+                    record.setShowDate(show.getDate("dt"));
                     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                     Date tm = sdf.parse(show.getString("tm"));
-                    record.setTm(tm);
+                    record.setStartTime(tm);
                     Date end = sdf.parse(show.getString("end"));
-                    record.setEnd(end);
+                    record.setEndTime(end);
 
-                    record.setLang(show.getString("lang"));
-                    record.setTh(show.getString("th"));
-                    record.setTp(show.getString("tp"));
+                    record.setLanguage(show.getString("lang"));
+                    record.setHall(show.getString("th"));
+                    record.setVersiondesc(show.getString("tp"));
 
                     Float sellPr = MaoyanPriceDecoder.decode(show.getString("sellPrStr"), decodeCssContent);
-                    record.setSellpr(sellPr);
+                    record.setSaleprice(sellPr);
                     Float pr = MaoyanPriceDecoder.decode(show.getString("prStr"), decodeCssContent);
-                    record.setPr(pr);
+                    record.setCinemaprice(pr);
+
+                    String ticketURL = "http://m.maoyan.com/?tmp=seats&showId=" + show.getString("showId") +
+                            "&showDate=" + show.getString("showDate");
+                    record.setTicketUrl(ticketURL);
                 } catch (ParseException e) {
                     e.printStackTrace();
                     continue;
