@@ -1,17 +1,17 @@
 package com.family.grabserver.service;
 
-import com.family.grabserver.entity.ShowplanMtime;
-import com.family.grabserver.mapper.ShowplanMtimeMapper;
+import com.family.grabserver.entity.ScreeningMtime;
+import com.family.grabserver.mapper.ScreeningMtimeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @SuppressWarnings("ALL")
 @Service
-public class ShowplanMtimeService {
+public class ScreeningMtimeService {
     @Autowired
-    private ShowplanMtimeMapper mapper;
+    private ScreeningMtimeMapper mapper;
 
-    public int insertOrUpate(ShowplanMtime record) {
+    public int insertOrUpate(ScreeningMtime record) {
         if (record.getId() == null)
             return mapper.insert(record);
         else {

@@ -7,13 +7,13 @@ import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.ExtractByUrl;
 import com.family.grab.model.annotation.TargetUrl;
-import com.family.grabserver.pipeline.maoyan.ShowplanMaoyanPipeline;
+import com.family.grabserver.pipeline.maoyan.ScreeningMaoyanPipeline;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @TargetUrl("http://m.maoyan.com/showtime/[\\w\\W]*")
-public class ShowplanMaoyanModel implements AfterExtractor {
+public class ScreeningMaoyanModel implements AfterExtractor {
 
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -29,10 +29,10 @@ public class ShowplanMaoyanModel implements AfterExtractor {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
-        final ShowplanMaoyanPipeline pipeline = applicationContext.getBean(ShowplanMaoyanPipeline.class);
+        final ScreeningMaoyanPipeline pipeline = applicationContext.getBean(ScreeningMaoyanPipeline.class);
 
         OOSpider.create(Site.me().setSleepTime(1000).setCycleRetryTimes(3),
-                pipeline, ShowplanMaoyanModel.class)
+                pipeline, ScreeningMaoyanModel.class)
                 .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=14381&movieid=249141").thread(1).run();
 
     }

@@ -19,7 +19,7 @@ public class MergeService {
     public void merge() {
         logger.info("开始执行合并");
         try {
-            SqlUtil.deleteAll("bim_base.showplan");
+            SqlUtil.deleteAll("bim_base.screening");
             SqlUtil.deleteAll("bim_base.movieshowing");
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,8 +38,8 @@ public class MergeService {
         mapper.merge_cinema_mtime();
         mapper.merge_cinema_maoyan();
 
-        mapper.merge_showplan_maoyan();
-        mapper.merge_showplan_mtime();
+        mapper.merge_screening_maoyan();
+        mapper.merge_screening_mtime();
     }
 
 }

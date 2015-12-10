@@ -106,8 +106,8 @@ CREATE TABLE IF NOT EXISTS `movieshowing` (
 -- 数据导出被取消选择。
 
 
--- 导出  表 bim_base.showplan 结构
-CREATE TABLE IF NOT EXISTS `showplan` (
+-- 导出  表 bim_base.screening 结构
+CREATE TABLE IF NOT EXISTS `screening` (
   `id`          int(11)                 NOT NULL AUTO_INCREMENT,
   `cinema_id`   int(11)                 NOT NULL DEFAULT '0' COMMENT '影院',
   `movie_id`    int(11)                 NOT NULL DEFAULT '0' COMMENT '影片',

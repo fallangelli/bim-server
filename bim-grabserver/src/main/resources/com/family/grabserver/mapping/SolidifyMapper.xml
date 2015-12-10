@@ -138,13 +138,13 @@
         ON DUPLICATE KEY UPDATE id_maoyan = cim.id
     </insert>
 
-    <delete id="deleteAllShowplan">
-        DELETE FROM bim_base.showplan
+    <delete id="deleteAllscreening">
+        DELETE FROM bim_base.screening
     </delete>
 
-    <insert id="merge_showplan_maoyan">
-        INSERT INTO bim_base.showplan (cinema_id, movie_id, show_date, start_time, end_time, language, hall, version,
-        sale_price, cinema_price, ticket_url)
+    <insert id="merge_screening_maoyan">
+        INSERT INTO bim_base.screening (cinema_id, movie_id, show_date, start_time, end_time, language, hall, version,
+        sale_price, cinema_price, source, ticket_url)
             SELECT
                 c.id AS cinema_id,
                 m.id AS movie_id,
@@ -156,16 +156,17 @@
         version,
         sale_price,
         cinema_price,
+        'maoyan',
                 ticket_url
-            FROM bim_grab.showplan_maoyan pm
+        FROM bim_grab.screening_maoyan pm
                 JOIN bim_base.movieshowing m ON pm.movie_id = m.id_maoyan
                 JOIN bim_base.cinema c ON pm.cinema_id = c.id_maoyan
         ON DUPLICATE KEY UPDATE ticket_url = pm.ticket_url
     </insert>
 
-    <insert id="merge_showplan_mtime">
-        INSERT INTO bim_base.showplan (cinema_id, movie_id, show_date, start_time, end_time, language, hall,
-        version, sale_price, cinema_price, ticket_url)
+    <insert id="merge_screening_mtime">
+        INSERT INTO bim_base.screening (cinema_id, movie_id, show_date, start_time, end_time, language, hall,
+        version, sale_price, cinema_price, source, ticket_url)
         SELECT
         c.id AS cinema_id,
         m.id AS movie_id,
@@ -177,8 +178,9 @@
         version,
         sale_price,
         cinema_price,
+        'mtime',
         ticket_url
-        FROM bim_grab.showplan_mtime pm
+        FROM bim_grab.screening_mtime pm
         JOIN bim_base.movieshowing m ON pm.movie_id = m.id_mtime
         JOIN bim_base.cinema c ON pm.cinema_id = c.id_mtime
         ON DUPLICATE KEY UPDATE ticket_url = pm.ticket_url

@@ -17,7 +17,6 @@
     <appender name="activexAppender" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="File" value="./logs/grab.log"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
-        <param name="MaxBackupIndex" value="10"/>
         <param name="Append" value="true"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"

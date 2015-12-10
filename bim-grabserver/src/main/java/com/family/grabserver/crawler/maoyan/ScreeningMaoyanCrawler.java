@@ -4,9 +4,9 @@ import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
 import com.family.grabserver.entity.CinemamovieMaoyan;
 import com.family.grabserver.model.maoyan.MovieshowingMaoyanModel;
-import com.family.grabserver.model.maoyan.ShowplanMaoyanModel;
+import com.family.grabserver.model.maoyan.ScreeningMaoyanModel;
 import com.family.grabserver.pipeline.maoyan.MovieshowingMaoyanPipeline;
-import com.family.grabserver.pipeline.maoyan.ShowplanMaoyanPipeline;
+import com.family.grabserver.pipeline.maoyan.ScreeningMaoyanPipeline;
 import com.family.grabserver.service.CinemamovieMaoyanService;
 import com.family.grabserver.service.MovieshowingMaoyanService;
 import com.family.grabserver.util.SqlUtil;
@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ShowplanMaoyanCrawler {
+public class ScreeningMaoyanCrawler {
     @Autowired
-    private ShowplanMaoyanPipeline pipeline;
+    private ScreeningMaoyanPipeline pipeline;
     @Autowired
     private MovieshowingMaoyanPipeline movieShowingMaoyanPipeline;
     @Autowired
@@ -36,14 +36,14 @@ public class ShowplanMaoyanCrawler {
 
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
-        final ShowplanMaoyanCrawler jsonCrawler = applicationContext.getBean(ShowplanMaoyanCrawler.class);
+        final ScreeningMaoyanCrawler jsonCrawler = applicationContext.getBean(ScreeningMaoyanCrawler.class);
         jsonCrawler.crawl();
         System.exit(0);
     }
 
     public void crawl() {
         try {
-            SqlUtil.deleteAll("showplan_maoyan");
+            SqlUtil.deleteAll("screening_maoyan");
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -71,7 +71,7 @@ public class ShowplanMaoyanCrawler {
         }
         logger.info("开始抓取 猫眼 场次信息");
         OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(500).setCycleRetryTimes(5).setRetrySleepTime(3000),
-                pipeline, ShowplanMaoyanModel.class)
+                pipeline, ScreeningMaoyanModel.class)
                 .addUrl((String[]) urls.toArray(new String[]{}))
                 .thread(200).run();
     }

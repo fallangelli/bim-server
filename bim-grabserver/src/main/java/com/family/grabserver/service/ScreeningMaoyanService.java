@@ -1,17 +1,17 @@
 package com.family.grabserver.service;
 
-import com.family.grabserver.entity.ShowplanMaoyan;
-import com.family.grabserver.mapper.ShowplanMaoyanMapper;
+import com.family.grabserver.entity.ScreeningMaoyan;
+import com.family.grabserver.mapper.ScreeningMaoyanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @SuppressWarnings("ALL")
 @Service
-public class ShowplanMaoyanService {
+public class ScreeningMaoyanService {
     @Autowired
-    private ShowplanMaoyanMapper mapper;
+    private ScreeningMaoyanMapper mapper;
 
-    public int insertOrUpate(ShowplanMaoyan record) {
+    public int insertOrUpate(ScreeningMaoyan record) {
         if (record.getId() == null)
             return mapper.insert(record);
         else {

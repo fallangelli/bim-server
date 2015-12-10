@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * Date: 13-5-13
  * Time: 下午8:33
  */
-public class ShowplanMaoyanJsonParseTest {
+public class ScreeningMaoyanJsonParseTest {
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
     //    @Ignore

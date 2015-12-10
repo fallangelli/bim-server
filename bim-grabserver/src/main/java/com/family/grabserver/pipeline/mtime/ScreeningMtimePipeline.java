@@ -5,9 +5,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.family.grab.Task;
 import com.family.grab.pipeline.PageModelPipeline;
-import com.family.grabserver.entity.ShowplanMtime;
-import com.family.grabserver.model.mtime.ShowplanMtimeModel;
-import com.family.grabserver.service.ShowplanMtimeService;
+import com.family.grabserver.entity.ScreeningMtime;
+import com.family.grabserver.model.mtime.ScreeningMtimeModel;
+import com.family.grabserver.service.ScreeningMtimeService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,14 +19,14 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 @Component
-public class ShowplanMtimePipeline implements PageModelPipeline<ShowplanMtimeModel> {
+public class ScreeningMtimePipeline implements PageModelPipeline<ScreeningMtimeModel> {
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private ShowplanMtimeService service;
+    private ScreeningMtimeService service;
 
     @Override
-    public void process(ShowplanMtimeModel model, Task task) {
+    public void process(ScreeningMtimeModel model, Task task) {
         String context = model.getContext();
         JSONObject ob = JSON.parseObject(context);
         JSONArray shows = (JSONArray) ob.get("s");
@@ -38,7 +38,7 @@ public class ShowplanMtimePipeline implements PageModelPipeline<ShowplanMtimeMod
                 continue;
             }
 
-            ShowplanMtime record = new ShowplanMtime();
+            ScreeningMtime record = new ScreeningMtime();
 
 
             record.setId(show.getInteger("sid"));

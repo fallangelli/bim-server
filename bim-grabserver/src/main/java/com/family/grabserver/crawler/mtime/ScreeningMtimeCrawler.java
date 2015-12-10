@@ -6,9 +6,9 @@ import com.family.grab.Site;
 import com.family.grab.model.OOSpider;
 import com.family.grabserver.entity.CinemamovieMtime;
 import com.family.grabserver.model.mtime.MovieshowingMtimeModel;
-import com.family.grabserver.model.mtime.ShowplanMtimeModel;
+import com.family.grabserver.model.mtime.ScreeningMtimeModel;
 import com.family.grabserver.pipeline.mtime.MovieshowingMtimePipeline;
-import com.family.grabserver.pipeline.mtime.ShowplanMtimePipeline;
+import com.family.grabserver.pipeline.mtime.ScreeningMtimePipeline;
 import com.family.grabserver.service.CinemamovieMtimeService;
 import com.family.grabserver.service.MovieshowingMtimeService;
 import com.family.grabserver.util.SqlUtil;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ShowplanMtimeCrawler {
+public class ScreeningMtimeCrawler {
     @Autowired
-    private ShowplanMtimePipeline pipeline;
+    private ScreeningMtimePipeline pipeline;
     @Autowired
     private MovieshowingMtimePipeline movieShowingMtimePipeline;
 
@@ -38,14 +38,14 @@ public class ShowplanMtimeCrawler {
     public static void main(String[] args) {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
-        final ShowplanMtimeCrawler jsonCrawler = applicationContext.getBean(ShowplanMtimeCrawler.class);
+        final ScreeningMtimeCrawler jsonCrawler = applicationContext.getBean(ScreeningMtimeCrawler.class);
         jsonCrawler.crawl();
         System.exit(0);
     }
 
     public void crawl() {
         try {
-            SqlUtil.deleteAll("showplan_Mtime");
+            SqlUtil.deleteAll("screening_Mtime");
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -75,7 +75,7 @@ public class ShowplanMtimeCrawler {
         }
         logger.info("开始抓取 时光 场次信息");
         OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(500).setCycleRetryTimes(5).setRetrySleepTime(3000),
-                pipeline, ShowplanMtimeModel.class)
+                pipeline, ScreeningMtimeModel.class)
                 .addUrl((String[]) urls.toArray(new String[]{}))
                 .thread(100).run();
     }

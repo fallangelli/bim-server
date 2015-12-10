@@ -3,11 +3,11 @@ package com.family.grabserver.runner;
 import com.family.grabserver.crawler.maoyan.CinemaMaoyanCrawler;
 import com.family.grabserver.crawler.maoyan.CinemamovieMaoyanCrawler;
 import com.family.grabserver.crawler.maoyan.CityMaoyanCrawler;
-import com.family.grabserver.crawler.maoyan.ShowplanMaoyanCrawler;
+import com.family.grabserver.crawler.maoyan.ScreeningMaoyanCrawler;
 import com.family.grabserver.crawler.mtime.CinemaMtimeCrawler;
 import com.family.grabserver.crawler.mtime.CinemamovieMtimeCrawler;
 import com.family.grabserver.crawler.mtime.CityMtimeCrawler;
-import com.family.grabserver.crawler.mtime.ShowplanMtimeCrawler;
+import com.family.grabserver.crawler.mtime.ScreeningMtimeCrawler;
 import com.family.grabserver.service.MergeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -24,7 +24,7 @@ public class MainRunner {
     @Autowired
     public CinemamovieMaoyanCrawler cinemamovieMaoyanCrawler;
     @Autowired
-    public ShowplanMaoyanCrawler showplanMaoyanCrawler;
+    public ScreeningMaoyanCrawler screeningMaoyanCrawler;
 
 
     @Autowired
@@ -34,7 +34,7 @@ public class MainRunner {
     @Autowired
     public CinemamovieMtimeCrawler cinemamovieMtimeCrawler;
     @Autowired
-    public ShowplanMtimeCrawler showplanMtimeCrawler;
+    public ScreeningMtimeCrawler screeningMtimeCrawler;
 
     @Autowired
     public MergeService mergeService;
@@ -45,7 +45,7 @@ public class MainRunner {
         grabMaoyanRunner.grabCity();
         grabMaoyanRunner.grabCinema();
         grabMaoyanRunner.grabCinemamovie();
-        grabMaoyanRunner.grabShowplan();
+        grabMaoyanRunner.grabScreening();
         grabMaoyanRunner.mergeService.merge();
     }
 
@@ -65,9 +65,9 @@ public class MainRunner {
         cinemamovieMtimeCrawler.crawl();
     }
 
-    public void grabShowplan() {
-        showplanMaoyanCrawler.crawl();
-        showplanMtimeCrawler.crawl();
+    public void grabScreening() {
+        screeningMaoyanCrawler.crawl();
+        screeningMtimeCrawler.crawl();
     }
 
 }

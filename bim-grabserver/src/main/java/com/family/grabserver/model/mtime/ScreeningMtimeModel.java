@@ -7,13 +7,13 @@ import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.ExtractByUrl;
 import com.family.grab.model.annotation.TargetUrl;
-import com.family.grabserver.pipeline.mtime.ShowplanMtimePipeline;
+import com.family.grabserver.pipeline.mtime.ScreeningMtimePipeline;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @TargetUrl("http://m.mtime.cn/Service/[\\w\\W]*")
-public class ShowplanMtimeModel implements AfterExtractor {
+public class ScreeningMtimeModel implements AfterExtractor {
 
     private org.slf4j.Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -31,9 +31,9 @@ public class ShowplanMtimeModel implements AfterExtractor {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
-        final ShowplanMtimePipeline pipeline = applicationContext.getBean(ShowplanMtimePipeline.class);
+        final ScreeningMtimePipeline pipeline = applicationContext.getBean(ScreeningMtimePipeline.class);
         OOSpider.create(Site.me().setSleepTime(1000).setCycleRetryTimes(3),
-                pipeline, ShowplanMtimeModel.class)
+                pipeline, ScreeningMtimeModel.class)
                 .addUrl("http://m.mtime.cn/Service/callback.mi/showtime/ShowTimesByCinemaMovieDate.api?" +
                         "cinemaId=2342&movieId=216036&date=2015-12-10").thread(1).run();
     }
