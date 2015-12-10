@@ -40,6 +40,7 @@ public class ShowplanMtimeCrawler {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
         final ShowplanMtimeCrawler jsonCrawler = applicationContext.getBean(ShowplanMtimeCrawler.class);
         jsonCrawler.crawl();
+        System.exit(0);
     }
 
     public void crawl() {
@@ -76,7 +77,7 @@ public class ShowplanMtimeCrawler {
         OOSpider.create(Site.me().setTimeOut(30000).setSleepTime(500).setCycleRetryTimes(5).setRetrySleepTime(3000),
                 pipeline, ShowplanMtimeModel.class)
                 .addUrl((String[]) urls.toArray(new String[]{}))
-                .thread(200).run();
+                .thread(100).run();
     }
 
 }

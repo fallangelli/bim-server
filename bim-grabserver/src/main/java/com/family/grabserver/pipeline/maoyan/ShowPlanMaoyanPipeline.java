@@ -99,12 +99,12 @@ public class ShowplanMaoyanPipeline implements PageModelPipeline<ShowplanMaoyanM
 
                     record.setLanguage(show.getString("lang"));
                     record.setHall(show.getString("th"));
-                    record.setVersiondesc(show.getString("tp"));
+                    record.setVersion(show.getString("tp"));
 
                     Float sellPr = MaoyanPriceDecoder.decode(show.getString("sellPrStr"), decodeCssContent);
-                    record.setSaleprice(sellPr);
+                    record.setSalePrice(sellPr);
                     Float pr = MaoyanPriceDecoder.decode(show.getString("prStr"), decodeCssContent);
-                    record.setCinemaprice(pr);
+                    record.setCinemaPrice(pr);
 
                     String ticketURL = "http://m.maoyan.com/?tmp=seats&showId=" + show.getString("showId") +
                             "&showDate=" + show.getString("showDate");

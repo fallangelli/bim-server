@@ -143,7 +143,8 @@
     </delete>
 
     <insert id="merge_showplan_maoyan">
-        INSERT INTO bim_base.showplan (cinema_id, movie_id, show_date, start_time, end_time, language, hall, versionDesc, salePrice, cinemaPrice, ticket_url)
+        INSERT INTO bim_base.showplan (cinema_id, movie_id, show_date, start_time, end_time, language, hall, version,
+        sale_price, cinema_price, ticket_url)
             SELECT
                 c.id AS cinema_id,
                 m.id AS movie_id,
@@ -152,9 +153,9 @@
                 end_time,
                 language,
                 hall,
-                versionDesc,
-                salePrice,
-                cinemaPrice,
+        version,
+        sale_price,
+        cinema_price,
                 ticket_url
             FROM bim_grab.showplan_maoyan pm
                 JOIN bim_base.movieshowing m ON pm.movie_id = m.id_maoyan
@@ -164,7 +165,7 @@
 
     <insert id="merge_showplan_mtime">
         INSERT INTO bim_base.showplan (cinema_id, movie_id, show_date, start_time, end_time, language, hall,
-        versionDesc, salePrice, cinemaPrice, ticket_url)
+        version, sale_price, cinema_price, ticket_url)
         SELECT
         c.id AS cinema_id,
         m.id AS movie_id,
@@ -173,9 +174,9 @@
         end_time,
         language,
         hall,
-        versionDesc,
-        salePrice,
-        cinemaPrice,
+        version,
+        sale_price,
+        cinema_price,
         ticket_url
         FROM bim_grab.showplan_mtime pm
         JOIN bim_base.movieshowing m ON pm.movie_id = m.id_mtime

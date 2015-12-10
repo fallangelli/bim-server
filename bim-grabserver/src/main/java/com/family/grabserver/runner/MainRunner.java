@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MainRunner {
+
     @Autowired
     public CityMaoyanCrawler cityMaoyanCrawler;
     @Autowired
@@ -41,22 +42,32 @@ public class MainRunner {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
         final MainRunner grabMaoyanRunner = applicationContext.getBean(MainRunner.class);
-        grabMaoyanRunner.crawMaoyan();
-        grabMaoyanRunner.crawMtime();
+        grabMaoyanRunner.grabCity();
+        grabMaoyanRunner.grabCinema();
+        grabMaoyanRunner.grabCinemamovie();
+        grabMaoyanRunner.grabShowplan();
         grabMaoyanRunner.mergeService.merge();
     }
 
-    public void crawMaoyan() {
+    public void grabCity() {
         cityMaoyanCrawler.crawl();
-        cinemaMaoyanCrawler.crawl();
-        cinemamovieMaoyanCrawler.crawl();
-        showplanMaoyanCrawler.crawl();
+        cityMtimeCrawler.crawl();
     }
 
-    public void crawMtime() {
-        cityMtimeCrawler.crawl();
-        cinemaMtimeCrawler.crawl();
+
+    public void grabCinema() {
+        cinemaMaoyanCrawler.crawl();
+        cinemaMaoyanCrawler.crawl();
+    }
+
+    public void grabCinemamovie() {
+        cinemamovieMaoyanCrawler.crawl();
         cinemamovieMtimeCrawler.crawl();
+    }
+
+    public void grabShowplan() {
+        showplanMaoyanCrawler.crawl();
         showplanMtimeCrawler.crawl();
     }
+
 }

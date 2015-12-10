@@ -3,12 +3,14 @@ package com.family.grabserver.model.maoyan;
 import com.family.grab.Page;
 import com.family.grab.Site;
 import com.family.grab.model.AfterExtractor;
-import com.family.grab.model.ConsolePageModelPipeline;
 import com.family.grab.model.OOSpider;
 import com.family.grab.model.annotation.ExtractBy;
 import com.family.grab.model.annotation.ExtractByUrl;
 import com.family.grab.model.annotation.TargetUrl;
+import com.family.grabserver.pipeline.maoyan.ShowplanMaoyanPipeline;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @TargetUrl("http://m.maoyan.com/showtime/[\\w\\W]*")
 public class ShowplanMaoyanModel implements AfterExtractor {
@@ -26,18 +28,13 @@ public class ShowplanMaoyanModel implements AfterExtractor {
 
 
     public static void main(String[] args) {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
+        final ShowplanMaoyanPipeline pipeline = applicationContext.getBean(ShowplanMaoyanPipeline.class);
 
-        OOSpider.create(Site.me().setTimeOut(30000), new ConsolePageModelPipeline(), ShowplanMaoyanModel.class)
-//                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
-//                .addPipeline(new ConsolePipeline())
-                .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=1&movieid=78380").thread(1).run();
+        OOSpider.create(Site.me().setSleepTime(1000).setCycleRetryTimes(3),
+                pipeline, ShowplanMaoyanModel.class)
+                .addUrl("http://m.maoyan.com/showtime/wrap.json?cinemaid=14381&movieid=249141").thread(1).run();
 
-
-//        OOSpider.create(Site.me().setSleepTime(1000)
-//                , new ConsolePageModelPipeline(), com.family.grabserver.model.DoubanComing.class)
-//                .addUrl("http://movie.douban.com/coming")
-//                .addPipeline(new JsonFilePipeline("D:\\grab\\"))
-//                .addPipeline(new ConsolePipeline()).thread(5).run();
     }
 
     public String getContext() {

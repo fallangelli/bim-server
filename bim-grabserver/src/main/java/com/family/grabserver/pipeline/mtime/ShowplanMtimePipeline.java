@@ -34,8 +34,7 @@ public class ShowplanMtimePipeline implements PageModelPipeline<ShowplanMtimeMod
 
             JSONObject show = (JSONObject) showOb;
 
-            if (show.getJSONArray("provider").size() <= 0 ||
-                    show.getFloat("startTime") < 0) {
+            if (show.getJSONArray("provider").size() <= 0 || show.getFloat("startTime") < 0) {
                 continue;
             }
 
@@ -49,7 +48,6 @@ public class ShowplanMtimePipeline implements PageModelPipeline<ShowplanMtimeMod
                 String ticketURL = "http://m.mtime.cn/#!/onlineticket/" + provider.getInteger("dId") + "/";
                 record.setTicketUrl(ticketURL);
             }
-
 
             record.setCinemaId(Integer.parseInt(model.getCinemaId()));
             record.setMovieId(Integer.parseInt(model.getMovieId()));
@@ -76,9 +74,9 @@ public class ShowplanMtimePipeline implements PageModelPipeline<ShowplanMtimeMod
 
             record.setHall(show.getString("hall"));
 
-            record.setVersiondesc(show.getString("versionDesc"));
-            record.setSaleprice(show.getFloat("salePrice") / 100);
-            record.setCinemaprice(show.getFloat("cinemaPrice") / 100);
+            record.setVersion(show.getString("versionDesc"));
+            record.setSalePrice(show.getFloat("salePrice") / 100);
+            record.setCinemaPrice(show.getFloat("cinemaPrice") / 100);
 
             service.insertOrUpate(record);
 

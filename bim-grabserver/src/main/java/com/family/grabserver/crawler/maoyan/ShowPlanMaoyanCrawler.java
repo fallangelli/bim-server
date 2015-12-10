@@ -38,6 +38,7 @@ public class ShowplanMaoyanCrawler {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/applicationContext*.xml");
         final ShowplanMaoyanCrawler jsonCrawler = applicationContext.getBean(ShowplanMaoyanCrawler.class);
         jsonCrawler.crawl();
+        System.exit(0);
     }
 
     public void crawl() {

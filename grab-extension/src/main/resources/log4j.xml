@@ -2,20 +2,41 @@
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-    <appender title="stdout" class="org.apache.log4j.ConsoleAppender">
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param title="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c(%F:%L) ## %m%n"/>
+            <param name="ConversionPattern" value="%d{yy-MM-dd HH:mm:ss,SSS} %-5p %c(%F:%L) ## %m%n"/>
         </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="info"/>
+            <param name="levelMax" value="FATAL "/>
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
     </appender>
 
-    <logger title="org.apache" additivity="false">
-        <level value="debug"/>
-        <appender-ref ref="stdout" />
+
+    <!--<appender name="activexAppender" class="org.apache.log4j.DailyRollingFileAppender">-->
+    <!--<param name="File" value="E:/grab.log"/>-->
+    <!--<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>-->
+    <!--<layout class="org.apache.log4j.PatternLayout">-->
+    <!--<param name="ConversionPattern"-->
+    <!--value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %c{3\} - %m%n"/>-->
+    <!--</layout>-->
+    <!--<filter class="org.apache.log4j.varia.LevelRangeFilter">-->
+    <!--<param name="levelMin" value="WARN"/>-->
+    <!--<param name="levelMax" value="FATAL "/>-->
+    <!--<param name="AcceptOnMatch" value="true"/>-->
+    <!--</filter>-->
+    <!--</appender>-->
+
+    <logger name="org.apache" additivity="false">
+        <level value="warn"/>
+        <appender-ref ref="activexAppender"/>
     </logger>
 
     <root>
-        <level value="debug"/>
-        <appender-ref ref="stdout" />
+        <level value="info"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="activexAppender"/>
     </root>
 
 </log4j:configuration>
