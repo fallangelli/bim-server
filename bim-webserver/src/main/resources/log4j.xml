@@ -15,7 +15,7 @@
 
 
   <appender name="activexAppender" class="org.apache.log4j.DailyRollingFileAppender">
-    <param name="File" value="./logs/bim_server.log"/>
+    <param name="File" value="./logs/bim_webserver.log"/>
     <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"/>
     <param name="Append" value="true"/>
     <layout class="org.apache.log4j.PatternLayout">

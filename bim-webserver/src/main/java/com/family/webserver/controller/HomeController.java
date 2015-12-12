@@ -1,5 +1,6 @@
 package com.family.webserver.controller;
 
+import com.family.webserver.entity.HomeCityHotMovie;
 import com.family.webserver.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -21,13 +21,8 @@ public class HomeController {
   @RequestMapping(value = "/hotMovies", method = RequestMethod.GET, produces = "application/json")
   public
   @ResponseBody
-  List<String> getLinkedUserWithCustomer(@RequestParam(value = "cityId", required = true) Integer cityId) {
-    String a = "aa";
-    String b = "bb";
-    List<String> retVal = new ArrayList<>();
-    retVal.add(a);
-    retVal.add(b);
-    return retVal;
+  List<List<HomeCityHotMovie>> getLinkedUserWithCustomer(@RequestParam(value = "cityId", required = true) Integer cityId) {
+    return service.getHotMoviesByCity(cityId);
   }
 
 }

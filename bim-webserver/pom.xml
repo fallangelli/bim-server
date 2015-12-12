@@ -19,8 +19,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <compile.level>1.7</compile.level>
-    <version.spring>4.0.2.RELEASE</version.spring>
-    <version.mybatis>3.2.5</version.mybatis>
+    <version.spring>4.1.4.RELEASE</version.spring>
+    <version.mybatis>3.2.8</version.mybatis>
     <version.mybatis.spring>1.2.0</version.mybatis.spring>
     <version.mybatis.generator>1.3.2</version.mybatis.generator>
     <version.mysql.connectorj>5.1.31</version.mysql.connectorj>
