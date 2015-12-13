@@ -21,7 +21,7 @@ public class HomeController {
   @RequestMapping(value = "/hotMovies", method = RequestMethod.GET, produces = "application/json")
   public
   @ResponseBody
-  List<List<HomeCityHotMovie>> getLinkedUserWithCustomer(@RequestParam(value = "cityId", required = true) Integer cityId) {
+  List<List<HomeCityHotMovie>> getHotMoviesByCity(@RequestParam(value = "cityId", required = true) Integer cityId) {
     return service.getHotMoviesByCity(cityId);
   }
 

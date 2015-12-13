@@ -1,7 +1,7 @@
 package com.family.webserver.service;
 
 import com.family.webserver.entity.HomeCityHotMovie;
-import com.family.webserver.mapper.MovieshowingMapper;
+import com.family.webserver.mapper.HomeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class HomeService {
   @Autowired
-  private MovieshowingMapper mapper;
+  private HomeMapper mapper;
 
   public List<List<HomeCityHotMovie>> getHotMoviesByCity(Integer cityId) {
     List<HomeCityHotMovie> hotMovies = mapper.selectHomeHotMoviesByCity(cityId);
